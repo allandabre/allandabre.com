@@ -4,7 +4,7 @@ import Logo from './Logo'
 const links = [
   { href: '#about', label: 'About' },
   { href: '#experience', label: 'Experience' },
-  { href: '#ai-leadership', label: 'AI & Automation' },
+  { href: '#ai-leadership', label: 'AI Leadership' },
   { href: '#expertise', label: 'Expertise' },
   { href: '#education', label: 'Education' },
   { href: '#contact', label: 'Contact' },
@@ -27,8 +27,14 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-dark py-12 pb-8">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+    <footer className="relative bg-dark overflow-hidden">
+      {/* Teal accent line at top */}
+      <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+
+      {/* Subtle grid pattern matching hero */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8 pt-14 pb-8">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 pb-8 border-b border-white/10">
           <div>
             <div className="flex items-center gap-3 mb-2">
@@ -45,7 +51,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/allandabre/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/40 hover:text-primary hover:border-primary/30 transition-all duration-300"
+                className="w-11 h-11 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/40 hover:text-primary hover:border-primary/30 hover:bg-white/10 transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -58,7 +64,7 @@ export default function Footer() {
                   e.preventDefault()
                   window.location.href = `mailto:${email}`
                 }}
-                className="w-11 h-11 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/40 hover:text-primary hover:border-primary/30 transition-all duration-300"
+                className="w-11 h-11 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/40 hover:text-primary hover:border-primary/30 hover:bg-white/10 transition-all duration-300"
                 aria-label="Email"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
@@ -68,21 +74,35 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="flex gap-6 flex-wrap">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
-                className="text-sm text-white/40 hover:text-primary transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            ))}
+
+          {/* Links + Back to top */}
+          <div className="flex flex-col items-end gap-6">
+            <div className="flex gap-6 flex-wrap">
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleClick(e, link.href)}
+                  className="text-sm text-white/40 hover:text-primary transition-colors duration-200 hover-underline"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center gap-2 text-xs text-white/30 hover:text-primary transition-colors duration-200 group"
+            >
+              <span>Back to top</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+                <polyline points="18 15 12 9 6 15" />
+              </svg>
+            </button>
           </div>
         </div>
+
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/30">&copy; 2026 Allan Dabre. All rights reserved.</p>
+          <p className="text-xs text-white/30">&copy; {new Date().getFullYear()} Allan Dabre. All rights reserved.</p>
           <p className="text-xs text-white/30">Built with React, Tailwind CSS & Cursor AI</p>
         </div>
       </div>

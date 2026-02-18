@@ -17,7 +17,8 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const formData = new FormData(e.target)
+    const form = e.target  // capture before React recycles the synthetic event
+    const formData = new FormData(form)
     const name = formData.get('name')
     const senderEmail = formData.get('email')
     const subject = formData.get('subject') || 'Website Contact'
@@ -31,7 +32,7 @@ export default function Contact() {
     setStatus('sent')
     setTimeout(() => {
       setStatus('idle')
-      e.target.reset()
+      form.reset()
     }, 3000)
   }
 
@@ -68,9 +69,9 @@ export default function Contact() {
                   e.preventDefault()
                   window.location.href = `mailto:${email}`
                 }}
-                className="flex items-center gap-3 p-4 bg-surface-alt rounded-xl border border-border-light hover:border-border transition-all duration-300 group"
+                className="flex items-center gap-3 p-4 bg-surface-alt rounded-xl border border-border-light hover:border-primary/30 hover-card group"
               >
-                <div className="w-11 h-11 flex items-center justify-center bg-primary-light rounded-lg text-primary shrink-0">
+                <div className="w-11 h-11 flex items-center justify-center bg-primary-light rounded-lg text-primary shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
                     <rect x="2" y="4" width="20" height="16" rx="2" />
                     <path d="M22 7l-10 6L2 7" />
@@ -85,9 +86,9 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/allandabre/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 bg-surface-alt rounded-xl border border-border-light hover:border-border transition-all duration-300 group"
+                className="flex items-center gap-3 p-4 bg-surface-alt rounded-xl border border-border-light hover:border-primary/30 hover-card group"
               >
-                <div className="w-11 h-11 flex items-center justify-center bg-primary-light rounded-lg text-primary shrink-0">
+                <div className="w-11 h-11 flex items-center justify-center bg-primary-light rounded-lg text-primary shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                   </svg>

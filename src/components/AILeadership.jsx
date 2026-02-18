@@ -51,15 +51,16 @@ const techStack = [
   { name: 'Python', desc: 'Backend & ML' },
 ]
 
-function AICard({ product }) {
+function AICard({ product, index }) {
   const [ref, isVisible] = useScrollReveal()
 
   return (
     <div
       ref={ref}
-      className={`bg-white rounded-2xl p-6 md:p-8 border border-border-light hover:border-border hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${
+      className={`bg-white rounded-2xl p-6 md:p-8 border border-border-light hover:border-primary/30 hover-card transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
+      style={{ transitionDelay: `${index * 120}ms` }}
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
@@ -79,12 +80,12 @@ function AICard({ product }) {
       <p className="text-sm font-medium text-primary mb-4">{product.tagline}</p>
       <p className="text-sm leading-[1.7] text-text-secondary mb-6">{product.desc}</p>
 
-      {/* Results grid */}
+      {/* Results grid — enhanced metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 p-4 bg-surface-alt rounded-xl">
         {product.results.map((r) => (
           <div key={r.label} className="text-center">
-            <span className="block text-lg font-bold text-text">{r.metric}</span>
-            <span className="block text-[11px] text-text-muted uppercase tracking-wider font-medium mt-0.5">{r.label}</span>
+            <span className="block text-xl font-extrabold text-primary">{r.metric}</span>
+            <span className="block text-[10px] text-text-muted uppercase tracking-wider font-medium mt-0.5">{r.label}</span>
           </div>
         ))}
       </div>
@@ -93,7 +94,7 @@ function AICard({ product }) {
         {product.features.map((f) => (
           <span
             key={f}
-            className="px-3 py-1 border border-border-light rounded-full text-xs font-medium text-text-secondary"
+            className="px-3 py-1 border border-border-light rounded-full text-xs font-medium text-text-secondary hover:border-primary/30 hover:text-primary hover-pop"
           >
             {f}
           </span>
@@ -151,18 +152,25 @@ export default function AILeadership() {
           service offerings into AI-enhanced risk and compliance solutions.
         </p>
 
-        {/* Tech stack */}
+        {/* Tech stack — staggered */}
         <div
           ref={stackRef}
-          className={`flex flex-wrap gap-3 mb-14 transition-all duration-700 ${
-            stackVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+          className="flex flex-wrap gap-3 mb-14"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-text-muted self-center mr-2">Built with</span>
-          {techStack.map((t) => (
+          <span
+            className={`text-xs font-semibold uppercase tracking-widest text-text-muted self-center mr-2 transition-all duration-500 ${
+              stackVis ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            Built with
+          </span>
+          {techStack.map((t, i) => (
             <div
               key={t.name}
-              className="flex items-center gap-2 px-4 py-2 bg-white border border-border-light rounded-full hover:border-border transition-colors"
+              className={`flex items-center gap-2 px-4 py-2 bg-white border border-border-light rounded-full hover:border-primary/30 hover-pop transition-all duration-500 ${
+                stackVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+              style={{ transitionDelay: stackVis ? `${i * 60}ms` : '0ms' }}
             >
               <span className="text-sm font-semibold text-text">{t.name}</span>
               <span className="text-xs text-text-muted hidden sm:inline">— {t.desc}</span>
@@ -171,8 +179,8 @@ export default function AILeadership() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((p) => (
-            <AICard key={p.number} product={p} />
+          {products.map((p, i) => (
+            <AICard key={p.number} product={p} index={i} />
           ))}
         </div>
       </div>

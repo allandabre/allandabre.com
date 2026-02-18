@@ -12,13 +12,13 @@ function ImpactCounter({ value, prefix = '', suffix = '', label }) {
   const count = useCountUp(value, 1800, isVisible)
 
   return (
-    <div ref={ref} className="text-center px-4">
-      <div className="flex items-baseline justify-center">
-        {prefix && <span className="font-display text-2xl font-bold text-primary">{prefix}</span>}
-        <span className="font-display text-3xl md:text-4xl font-bold text-text">{count}</span>
-        {suffix && <span className="font-display text-xl font-bold text-primary">{suffix}</span>}
+    <div ref={ref} className="text-center px-4 group">
+      <div className="flex items-baseline justify-center group-hover:scale-110 transition-transform duration-300">
+        {prefix && <span className="font-display text-2xl md:text-3xl font-bold text-primary">{prefix}</span>}
+        <span className="font-display text-3xl md:text-5xl font-extrabold text-text">{count}</span>
+        {suffix && <span className="font-display text-xl md:text-2xl font-bold text-primary">{suffix}</span>}
       </div>
-      <span className="block text-xs text-text-muted mt-1 font-medium">{label}</span>
+      <span className="block text-xs text-text-muted mt-1.5 font-medium uppercase tracking-wider">{label}</span>
     </div>
   )
 }
@@ -82,7 +82,7 @@ function BulletItem({ text, impact }) {
   )
 }
 
-function TimelineItem({ job }) {
+function TimelineItem({ job, index }) {
   const [ref, isVisible] = useScrollReveal()
 
   return (
@@ -91,15 +91,16 @@ function TimelineItem({ job }) {
       className={`flex gap-4 md:gap-8 mb-8 last:mb-0 transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
     >
-      {/* Marker */}
+      {/* Marker — enhanced with ring */}
       <div className="hidden sm:flex flex-col items-center shrink-0 pt-2">
-        <div className="w-3.5 h-3.5 rounded-full bg-primary z-10" />
+        <div className="w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20 z-10" />
         {job.showLine && <div className="w-px flex-1 bg-border mt-2" />}
       </div>
 
       {/* Content card */}
-      <div className="flex-1 bg-white p-6 md:p-8 rounded-2xl border border-border-light hover:border-border hover:shadow-sm transition-all duration-300">
+      <div className="flex-1 bg-white p-6 md:p-8 rounded-2xl border border-border-light hover:border-primary/30 hover-card">
         <div className="flex justify-between items-start flex-wrap gap-2 mb-4">
           <div>
             <span className="text-xs font-semibold text-primary uppercase tracking-wide">
@@ -119,8 +120,8 @@ function TimelineItem({ job }) {
         <p className="text-[15px] leading-[1.7] text-text-secondary mb-5 font-medium">{job.summary}</p>
 
         <div className="mb-5 space-y-3">
-          {job.bullets.map((b, i) => (
-            <BulletItem key={i} text={b.text} impact={b.impact} />
+          {job.bullets.map((b) => (
+            <BulletItem key={b.impact} text={b.text} impact={b.impact} />
           ))}
         </div>
 
@@ -128,7 +129,7 @@ function TimelineItem({ job }) {
           {job.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 bg-surface-alt text-text-secondary text-xs font-medium rounded-full border border-border-light"
+              className="px-3 py-1 bg-surface-alt text-text-secondary text-xs font-medium rounded-full border border-border-light hover:border-primary/30 hover:text-primary hover-pop"
             >
               {tag}
             </span>
@@ -165,10 +166,10 @@ export default function Experience() {
           across regulated industries.
         </h2>
 
-        {/* Impact metrics banner */}
+        {/* Impact metrics banner — enhanced hierarchy */}
         <div
           ref={metricsRef}
-          className={`flex items-center justify-between gap-4 flex-wrap p-6 md:p-8 bg-surface-alt rounded-2xl border border-border-light mb-12 transition-all duration-700 ${
+          className={`flex items-center justify-between gap-4 flex-wrap p-8 md:p-10 bg-surface-alt rounded-2xl border border-border-light mb-12 transition-all duration-700 ${
             metricsVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -177,7 +178,7 @@ export default function Experience() {
               <div key={m.label} className="flex items-center gap-4 md:gap-10">
                 <ImpactCounter {...m} />
                 {i < impactMetrics.length - 1 && (
-                  <div className="hidden md:block w-px h-10 bg-border" />
+                  <div className="hidden md:block w-px h-12 bg-border" />
                 )}
               </div>
             ))}
@@ -185,8 +186,8 @@ export default function Experience() {
         </div>
 
         <div>
-          {jobs.map((job) => (
-            <TimelineItem key={job.company} job={job} />
+          {jobs.map((job, i) => (
+            <TimelineItem key={job.company} job={job} index={i} />
           ))}
         </div>
       </div>

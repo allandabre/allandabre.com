@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavScroll } from '../hooks/useNavScroll'
 import Logo from './Logo'
 
@@ -8,12 +8,16 @@ const navLinks = [
   { href: '#ai-leadership', label: 'AI Leadership' },
   { href: '#expertise', label: 'Expertise' },
   { href: '#education', label: 'Education' },
-  { href: '#contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { scrolled, activeSection } = useNavScroll()
+
+  // Restore scroll when component unmounts while menu is open
+  useEffect(() => {
+    return () => { document.body.style.overflow = '' }
+  }, [])
 
   const handleClick = (e, href) => {
     e.preventDefault()
@@ -36,7 +40,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-surface/90 backdrop-blur-xl border-b border-border py-3 shadow-sm'
+            ? 'bg-surface/90 backdrop-blur-xl border-b border-border/50 py-3 shadow-[0_1px_3px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.03)]'
             : 'bg-transparent py-5'
         }`}
       >
@@ -54,14 +58,14 @@ export default function Navbar() {
             </span>
           </a>
 
-          {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop links + CTA */}
+          <div className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleClick(e, link.href)}
-                className={`relative text-sm font-medium transition-colors py-2 ${
+                className={`relative text-sm font-medium transition-colors py-2 hover-underline ${
                   activeSection === link.href.slice(1)
                     ? 'text-primary'
                     : scrolled
@@ -72,6 +76,14 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            {/* CTA button */}
+            <a
+              href="#contact"
+              onClick={(e) => handleClick(e, '#contact')}
+              className="px-5 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+            >
+              Get in Touch
+            </a>
           </div>
 
           {/* Mobile toggle */}
@@ -94,7 +106,7 @@ export default function Navbar() {
         }`}
       >
         <div className="flex flex-col items-center gap-6">
-          {navLinks.map((link, i) => (
+          {[...navLinks, { href: '#contact', label: 'Contact' }].map((link, i) => (
             <a
               key={link.href}
               href={link.href}

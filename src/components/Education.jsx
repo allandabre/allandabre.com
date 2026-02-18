@@ -42,15 +42,16 @@ const leadership = [
   },
 ]
 
-function EduCard({ degree }) {
+function EduCard({ degree, index }) {
   const [ref, isVisible] = useScrollReveal()
 
   return (
     <div
       ref={ref}
-      className={`bg-white rounded-2xl overflow-hidden border border-border-light hover:border-border hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${
+      className={`bg-white rounded-2xl overflow-hidden border border-border-light hover:border-primary/30 hover-card transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
     >
       <div className="h-1 bg-primary" />
       <div className="p-6 md:p-8">
@@ -72,7 +73,7 @@ function EduCard({ degree }) {
         <p className="text-sm leading-[1.7] text-text-secondary mb-4">{degree.desc}</p>
         <div className="flex flex-wrap gap-2">
           {degree.highlights.map((h) => (
-            <span key={h} className="px-2.5 py-1 text-[11px] font-medium text-text-muted border border-border-light rounded-full">
+            <span key={h} className="px-2.5 py-1 text-[11px] font-medium text-text-muted border border-border-light rounded-full hover:border-primary/30 hover:text-primary hover-pop">
               {h}
             </span>
           ))}
@@ -117,15 +118,15 @@ export default function Education() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {degrees.map((d) => (
-            <EduCard key={d.field} degree={d} />
+          {degrees.map((d, i) => (
+            <EduCard key={d.field} degree={d} index={i} />
           ))}
         </div>
 
-        {/* Leadership */}
+        {/* Leadership — staggered items */}
         <div
           ref={leadRef}
-          className={`bg-white rounded-2xl border border-border-light p-6 md:p-8 transition-all duration-700 ${
+          className={`bg-white rounded-2xl border border-border-light hover:border-primary/30 hover-card p-6 md:p-8 transition-all duration-700 ${
             leadVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -134,11 +135,17 @@ export default function Education() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {leadership.map((item, i) => (
-              <div key={i} className="p-5 bg-surface-alt rounded-xl border border-border-light hover:border-border transition-all duration-300">
+              <div
+                key={item.title}
+                className={`p-5 bg-surface-alt rounded-xl border border-border-light hover:border-primary/30 hover-lift transition-all duration-600 ${
+                  leadVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
+                style={{ transitionDelay: leadVis ? `${200 + i * 100}ms` : '0ms' }}
+              >
                 <span className="block text-sm font-semibold text-text mb-1">{item.title}</span>
                 <span className="block text-[10px] text-text-muted uppercase tracking-wider mb-3">{item.org}</span>
                 <p className="text-sm text-text-secondary leading-relaxed mb-3">{item.text}</p>
-                <span className="inline-block text-[10px] font-semibold uppercase tracking-wider text-primary">
+                <span className="inline-block text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary-light px-2 py-0.5 rounded-full">
                   {item.impact}
                 </span>
               </div>

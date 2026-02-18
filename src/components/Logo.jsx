@@ -5,7 +5,7 @@ export default function Logo({ size = 36, className = '' }) {
       height={size}
       viewBox="0 0 48 48"
       fill="none"
-      className={className}
+      className={`${className} transition-transform duration-300 hover:rotate-[-6deg] hover:scale-110`}
       aria-label="Allan Dabre logo"
     >
       {/* Rounded square container */}

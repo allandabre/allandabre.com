@@ -23,28 +23,33 @@ const certifications = [
 const highlights = [
   {
     title: 'Risk Assessment & Mitigation',
-    desc: 'Conducting comprehensive enterprise risk assessments across financial, operational, and technology domains -- identifying control gaps, evaluating risk likelihood and impact, and developing targeted mitigation strategies aligned to frameworks like COSO, NIST, and ISO 27001.',
-    metric: 'COSO · NIST · ISO 27001',
+    desc: 'Enterprise risk assessments across financial, operational, and technology domains — aligned to COSO, NIST, and ISO 27001.',
+    metric: 'COSO · NIST · ISO',
   },
   {
     title: 'ITGC Design & Implementation',
-    desc: 'Designing and implementing IT General Controls spanning access management, change management, IT operations, and system development lifecycle (SDLC) -- across Salesforce, SAP ERP, and 25+ ancillary financial systems with full cross-system control linkages.',
-    metric: '25+ systems integrated',
+    desc: 'IT General Controls spanning access, change management, and SDLC across Salesforce, SAP ERP, and 25+ systems.',
+    metric: '25+ systems',
   },
   {
     title: 'Business Process Controls',
-    desc: 'Architecting business process controls across revenue, order-to-cash, procure-to-pay, and financial close cycles. Designing control activities including segregation of duties, reconciliations, management review controls, and automated application controls embedded directly in ERP workflows.',
-    metric: 'End-to-end process coverage',
+    desc: 'Controls across revenue, order-to-cash, procure-to-pay, and financial close — including SOD, reconciliations, and automated application controls.',
+    metric: 'End-to-end',
   },
   {
     title: 'Control Execution & Testing',
-    desc: 'Leading end-to-end control execution, testing, and remediation programs -- defining test plans, sampling methodologies, and evidence standards. Coordinating walkthroughs and operating effectiveness testing with internal audit teams and external auditors to ensure SOX readiness.',
-    metric: '22K+ users governed',
+    desc: 'Test plans, sampling, evidence standards, and operating effectiveness testing coordinated with internal and external auditors.',
+    metric: '22K+ users',
   },
   {
-    title: 'AI-Powered Compliance Automation',
-    desc: 'Building AI-powered tools using LLMs from OpenAI, Anthropic, and Google that automate control assessment, detect configuration anomalies across ERP/CRM systems, generate risk narratives, and accelerate testing workflows -- reducing manual review cycles from weeks to hours.',
-    metric: '70% effort reduction',
+    title: 'AI-Powered Automation',
+    desc: 'LLM-powered tools that automate control assessment, detect anomalies, and generate risk narratives — weeks to hours.',
+    metric: '70% reduced',
+  },
+  {
+    title: 'SOX Readiness & Audit Coordination',
+    desc: 'Partnering with external auditors to resolve deficiencies, close findings, and ensure seamless SOX readiness across all three lines of defense.',
+    metric: '3 lines of defense',
   },
 ]
 
@@ -89,9 +94,13 @@ export default function About() {
               }`}
             >
               <span className="block text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Certifications</span>
-              {certifications.map((cert) => (
-                <div key={cert} className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+              {certifications.map((cert, i) => (
+                <div
+                  key={cert}
+                  className="flex items-center gap-3"
+                  style={{ transitionDelay: `${i * 100}ms` }}
+                >
+                  <div className="w-2 h-2 rounded-full bg-primary shrink-0" />
                   <span className="text-sm text-text-secondary font-medium">{cert}</span>
                 </div>
               ))}
@@ -139,30 +148,31 @@ export default function About() {
               hands-on AI development is central to how I approach every engagement.
             </p>
 
-            {/* Highlight cards */}
+            {/* Highlight cards — 2-column grid, staggered */}
             <div
               ref={hlRef}
-              className={`flex flex-col gap-4 mb-10 transition-all duration-700 ${
-                hlVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10"
             >
-              {highlights.map((h) => (
+              {highlights.map((h, i) => (
                 <div
                   key={h.title}
-                  className="p-5 bg-white rounded-xl border border-border-light hover:border-border hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300"
+                  className={`p-4 bg-white rounded-xl border border-border-light hover:border-primary/30 hover-card transition-all duration-700 ${
+                    hlVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                  style={{ transitionDelay: hlVis ? `${i * 80}ms` : '0ms' }}
                 >
-                  <div className="flex items-center justify-between gap-4 mb-2">
-                    <h4 className="text-[15px] font-semibold text-text">{h.title}</h4>
-                    <span className="text-xs font-semibold text-primary whitespace-nowrap hidden sm:block">
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <h4 className="text-sm font-semibold text-text">{h.title}</h4>
+                    <span className="text-[10px] font-bold text-primary whitespace-nowrap bg-primary-light px-2 py-0.5 rounded-full">
                       {h.metric}
                     </span>
                   </div>
-                  <p className="text-sm text-text-secondary leading-relaxed">{h.desc}</p>
+                  <p className="text-xs text-text-secondary leading-relaxed">{h.desc}</p>
                 </div>
               ))}
             </div>
 
-            {/* Skills grid */}
+            {/* Skills grid — staggered */}
             <div
               ref={skillsRef}
               className={`transition-all duration-700 ${
@@ -171,10 +181,13 @@ export default function About() {
             >
               <span className="block text-xs font-semibold uppercase tracking-widest text-text-muted mb-4">Core Competencies</span>
               <div className="flex flex-wrap gap-2">
-                {coreSkills.map((skill) => (
+                {coreSkills.map((skill, i) => (
                   <span
                     key={skill}
-                    className="px-3 py-1.5 bg-white border border-border-light rounded-full text-xs font-medium text-text-secondary hover:border-primary/30 hover:text-primary transition-all duration-200"
+                    className={`px-3 py-1.5 bg-white border border-border-light rounded-full text-xs font-medium text-text-secondary hover:border-primary/30 hover:text-primary hover-pop transition-all duration-500 ${
+                      skillsVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                    }`}
+                    style={{ transitionDelay: skillsVis ? `${i * 40}ms` : '0ms' }}
                   >
                     {skill}
                   </span>

@@ -1,6 +1,12 @@
 # Sensitive / personal files
 *.pdf
 
+# AI tool config
+.claude/
+
+# Windows reserved device name (equivalent to /dev/null)
+nul
+
 # Logs
 logs
 *.log

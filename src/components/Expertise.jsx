@@ -1,6 +1,13 @@
 import { useEffect, useRef } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
+const proficiencyLabel = (width) => {
+  if (width >= 95) return 'Expert'
+  if (width >= 90) return 'Advanced'
+  if (width >= 85) return 'Proficient'
+  return 'Skilled'
+}
+
 const skillCategories = [
   {
     heading: 'Risk & Compliance',
@@ -32,15 +39,16 @@ const skillCategories = [
 ]
 
 const industries = [
-  { name: 'Technology', sub: 'Telehealth, EV, SaaS' },
-  { name: 'Healthcare', sub: 'Regulated & Telehealth' },
-  { name: 'Manufacturing', sub: 'Industrial & EV OEMs' },
-  { name: 'Consumer', sub: 'Goods, Retail & CPG' },
+  { name: 'Technology', sub: 'Telehealth, EV, SaaS', icon: '01' },
+  { name: 'Healthcare', sub: 'Regulated & Telehealth', icon: '02' },
+  { name: 'Manufacturing', sub: 'Industrial & EV OEMs', icon: '03' },
+  { name: 'Consumer', sub: 'Goods, Retail & CPG', icon: '04' },
 ]
 
-function SkillBar({ name, width }) {
+function SkillBar({ name, width, delay }) {
   const barRef = useRef(null)
   const [ref, isVisible] = useScrollReveal({ threshold: 0.3 })
+  const label = proficiencyLabel(width)
 
   useEffect(() => {
     if (isVisible && barRef.current) {
@@ -52,35 +60,42 @@ function SkillBar({ name, width }) {
     <div ref={ref} className="flex flex-col gap-2">
       <div className="flex justify-between items-center">
         <span className="text-sm font-medium text-text-secondary">{name}</span>
-        <span className="text-xs font-semibold text-primary">
-          {isVisible ? `${width}%` : '0%'}
+        <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full transition-all duration-700 ${
+          isVisible
+            ? 'opacity-100 bg-primary-light text-primary'
+            : 'opacity-0 bg-transparent text-transparent'
+        }`}
+          style={{ transitionDelay: `${delay + 800}ms` }}
+        >
+          {label}
         </span>
       </div>
       <div className="w-full h-1.5 bg-surface-dim rounded-full overflow-hidden">
         <div
           ref={barRef}
           className="h-full bg-primary rounded-full transition-all duration-[1500ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
-          style={{ width: 0 }}
+          style={{ width: 0, transitionDelay: `${delay}ms` }}
         />
       </div>
     </div>
   )
 }
 
-function SkillCategory({ heading, skills }) {
+function SkillCategory({ heading, skills, index }) {
   const [ref, isVisible] = useScrollReveal()
 
   return (
     <div
       ref={ref}
-      className={`bg-white p-6 md:p-8 rounded-2xl border border-border-light hover:border-border hover:shadow-sm transition-all duration-300 ${
+      className={`bg-white p-6 md:p-8 rounded-2xl border border-border-light hover:border-primary/30 hover-card transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
+      style={{ transitionDelay: `${index * 120}ms` }}
     >
       <h3 className="font-display text-lg font-semibold tracking-tight mb-6 text-text">{heading}</h3>
       <div className="flex flex-col gap-5">
-        {skills.map((s) => (
-          <SkillBar key={s.name} name={s.name} width={s.width} />
+        {skills.map((s, i) => (
+          <SkillBar key={s.name} name={s.name} width={s.width} delay={i * 150} />
         ))}
       </div>
     </div>
@@ -122,24 +137,29 @@ export default function Expertise() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          {skillCategories.map((cat) => (
-            <SkillCategory key={cat.heading} heading={cat.heading} skills={cat.skills} />
+          {skillCategories.map((cat, i) => (
+            <SkillCategory key={cat.heading} heading={cat.heading} skills={cat.skills} index={i} />
           ))}
 
-          {/* Industries card */}
+          {/* Industries card — staggered items */}
           <div
             ref={indRef}
-            className={`bg-white p-6 md:p-8 rounded-2xl border border-border-light hover:border-border hover:shadow-sm transition-all duration-300 ${
+            className={`bg-white p-6 md:p-8 rounded-2xl border border-border-light hover:border-primary/30 hover-card transition-all duration-700 ${
               indVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
+            style={{ transitionDelay: '360ms' }}
           >
             <h3 className="font-display text-lg font-semibold tracking-tight mb-6 text-text">Industry Experience</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {industries.map((ind) => (
+              {industries.map((ind, i) => (
                 <div
                   key={ind.name}
-                  className="p-5 bg-surface-alt border border-border-light rounded-xl hover:border-border transition-all duration-300 text-center"
+                  className={`p-5 bg-surface-alt border border-border-light rounded-xl hover:border-primary/30 hover-lift text-center transition-all duration-500 ${
+                    indVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                  }`}
+                  style={{ transitionDelay: indVis ? `${400 + i * 80}ms` : '0ms' }}
                 >
+                  <span className="block text-[10px] font-bold text-primary/40 tracking-widest mb-1">{ind.icon}</span>
                   <span className="block text-sm font-semibold text-text mb-1">{ind.name}</span>
                   <span className="block text-xs text-text-muted">{ind.sub}</span>
                 </div>
