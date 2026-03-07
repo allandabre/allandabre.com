@@ -166,7 +166,7 @@ export default function Navbar() {
         <button
           onClick={toggleMobile}
           aria-label="Close navigation"
-          className="absolute top-6 right-6 w-11 h-11 flex items-center justify-center text-white/40 hover:text-white transition-colors duration-200"
+          className={`absolute top-6 right-6 w-11 h-11 flex items-center justify-center text-white/40 hover:text-white transition-all duration-300 ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="w-6 h-6">
             <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
