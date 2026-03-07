@@ -2,7 +2,7 @@ import { useScrollReveal, useCountUp } from '../hooks/useScrollReveal'
 
 const impactMetrics = [
   { value: 5, prefix: '$', suffix: 'M+', label: 'Programs Directed' },
-  { value: 15, prefix: '$', suffix: 'M', label: 'Efficiency Gains' },
+  { value: 25, suffix: '+', label: 'Systems Assessed' },
   { value: 22, suffix: 'K+', label: 'Users Governed' },
   { value: 70, suffix: '%', label: 'Effort Reduced via AI' },
 ]
@@ -37,10 +37,10 @@ const jobs = [
       { text: 'Designed and implemented IT General Controls (ITGCs) covering access management, change management, IT operations, and SDLC across 25+ enterprise systems — ensuring controls were designed to operate effectively and withstand external audit scrutiny.', impact: 'ITGC across 25+ systems' },
       { text: 'Architected business process controls across revenue, order-to-cash, procure-to-pay, and financial close cycles — embedding segregation of duties, three-way matching, management review controls, and automated application controls directly into ERP workflows.', impact: 'End-to-end process controls' },
       { text: 'Engineered cross-system access governance covering 22,000+ users — standardizing provisioning, periodic recertification, and automated deprovisioning across integrated enterprise environments to eliminate access risk at scale.', impact: '22K+ users governed' },
-      { text: 'Delivered $15M in documented efficiency gains through 30+ cross-functional process workshops — embedding automated control enhancements that reduced manual effort and improved control reliability across revenue and financial close cycles.', impact: '$15M efficiency gains' },
+      { text: 'Delivered multi-million dollar efficiency gains through 30+ cross-functional process workshops — embedding automated control enhancements that reduced manual effort and improved control reliability across revenue and financial close cycles.', impact: 'Multi-million efficiency gains' },
       { text: 'Built second-line-of-defense risk frameworks for high-growth technology companies — including telehealth and EV manufacturers — designing control monitoring approaches and risk assessment methodologies that scale with rapid growth and regulatory change.', impact: 'High-growth tech clients' },
       { text: 'Led integration testing and data conversion validation for complex ERP and CRM transformation programs — defining test strategies, verifying completeness and accuracy of migrated data, and ensuring controls were operating effectively before and after go-live.', impact: 'Integration testing leadership' },
-      { text: 'Applied AI-powered analysis tools within client engagements to ingest enterprise system data, run structured LLM evaluation pipelines, and surface control gaps, access anomalies, and configuration issues — reducing audit cycle effort by 70%.', impact: '70% effort reduction' },
+      { text: 'Applied AI-powered analysis tools within client engagements to ingest enterprise system data, run structured LLM evaluation pipelines, and surface control gaps, access anomalies, and configuration issues — reducing assessment cycle effort by 70%.', impact: '70% effort reduction' },
       { text: 'Co-led a firm-wide AI initiative at PwC — designing proofs of concept and expanding the compliance practice into AI-enhanced risk and controls engagements.', impact: 'AI initiative leadership' },
     ],
     tags: ['Risk Assessment', 'ITGC', 'Business Process Controls', 'AI/LLMs', 'SOX', 'Control Testing', 'Salesforce', 'SAP ERP', 'Agile'],

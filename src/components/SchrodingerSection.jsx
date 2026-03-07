@@ -320,9 +320,10 @@ export default function SchrodingerSection() {
           }
         } else {
           stopAll()
+          hasPlayed = false
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.05 }
     )
     io.observe(canvas)
 

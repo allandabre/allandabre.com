@@ -178,11 +178,11 @@ export default function Hero() {
 
         {/* Stats — full width below */}
         <div className="flex items-center justify-center gap-8 md:gap-14 flex-wrap pt-8 border-t border-white/5">
-          <StatItem prefix="$" target={15} suffix="M" label="Efficiency gains delivered" />
-          <div className="hidden sm:block w-px h-10 bg-white/10" />
           <StatItem target={22} suffix="K+" label="Users governed" />
           <div className="hidden sm:block w-px h-10 bg-white/10" />
-          <StatItem target={70} suffix="%" label="Manual effort reduced" />
+          <StatItem target={25} suffix="+" label="Enterprise systems assessed" />
+          <div className="hidden sm:block w-px h-10 bg-white/10" />
+          <StatItem target={70} suffix="%" label="Assessment effort reduced" />
         </div>
       </div>
 
