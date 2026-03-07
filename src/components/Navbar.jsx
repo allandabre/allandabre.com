@@ -158,11 +158,12 @@ export default function Navbar() {
         aria-modal="true"
         aria-label="Navigation menu"
         ref={overlayRef}
+        onClick={toggleMobile}
         className={`fixed inset-0 bg-dark/[0.98] z-[999] flex items-center justify-center transition-opacity duration-400 ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-6" onClick={(e) => e.stopPropagation()}>
           {[...navLinks, { href: '#contact', label: 'Contact' }].map((link, i) => (
             <a
               key={link.href}

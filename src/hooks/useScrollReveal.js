@@ -31,6 +31,7 @@ function getSharedObserver(threshold, rootMargin) {
 export function useScrollReveal(options = {}) {
   const ref = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
+  const once = options.once !== false  // default true
 
   useEffect(() => {
     const element = ref.current
@@ -41,10 +42,14 @@ export function useScrollReveal(options = {}) {
     const { observer, callbacks } = getSharedObserver(threshold, rootMargin)
 
     callbacks.set(element, (entry) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true)
-        observer.unobserve(element)
-        callbacks.delete(element)
+      if (once) {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(element)
+          callbacks.delete(element)
+        }
+      } else {
+        setIsVisible(entry.isIntersecting)
       }
     })
 
@@ -54,7 +59,7 @@ export function useScrollReveal(options = {}) {
       observer.unobserve(element)
       callbacks.delete(element)
     }
-  }, [options.threshold, options.rootMargin])
+  }, [options.threshold, options.rootMargin, once])
 
   return [ref, isVisible]
 }
@@ -62,11 +67,18 @@ export function useScrollReveal(options = {}) {
 // ── useCountUp ────────────────────────────────────────────────────
 export function useCountUp(target, duration = 2000, isActive = false) {
   const [count, setCount] = useState(0)
-  const hasAnimated = useRef(false)
+  const wasActive = useRef(false)
 
   useEffect(() => {
-    if (!isActive || hasAnimated.current) return
-    hasAnimated.current = true
+    if (!isActive) {
+      wasActive.current = false
+      setCount(0)
+      return
+    }
+
+    // Already animating this activation — skip
+    if (wasActive.current) return
+    wasActive.current = true
 
     let rafId
     const startTime = performance.now()
@@ -75,17 +87,11 @@ export function useCountUp(target, duration = 2000, isActive = false) {
     const animate = (currentTime) => {
       const elapsed = currentTime - startTime
       const progress = Math.min(elapsed / duration, 1)
-      const easedProgress = easeOutQuart(progress)
-      setCount(Math.round(easedProgress * target))
-
-      if (progress < 1) {
-        rafId = requestAnimationFrame(animate)
-      }
+      setCount(Math.round(easeOutQuart(progress) * target))
+      if (progress < 1) rafId = requestAnimationFrame(animate)
     }
 
     rafId = requestAnimationFrame(animate)
-
-    // Clean up animation frame on unmount
     return () => cancelAnimationFrame(rafId)
   }, [target, duration, isActive])
 

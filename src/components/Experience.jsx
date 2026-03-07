@@ -8,7 +8,7 @@ const impactMetrics = [
 ]
 
 function ImpactCounter({ value, prefix = '', suffix = '', label }) {
-  const [ref, isVisible] = useScrollReveal({ threshold: 0.5 })
+  const [ref, isVisible] = useScrollReveal({ threshold: 0.5, once: false })
   const count = useCountUp(value, 1800, isVisible)
 
   return (

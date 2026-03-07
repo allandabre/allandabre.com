@@ -40,7 +40,7 @@ function RotatingText() {
 }
 
 function StatItem({ target, suffix = '', label, prefix = '' }) {
-  const [ref, isVisible] = useScrollReveal({ threshold: 0.5 })
+  const [ref, isVisible] = useScrollReveal({ threshold: 0.5, once: false })
   const count = useCountUp(target, 2000, isVisible)
 
   return (
