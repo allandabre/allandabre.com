@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavScroll } from '../hooks/useNavScroll'
+import { useNavigation } from '../context/NavigationContext'
+import { smoothScrollTo } from '../utils/smoothScroll'
 import Logo from './Logo'
 
 const navLinks = [
@@ -8,31 +10,79 @@ const navLinks = [
   { href: '#ai-leadership', label: 'AI Leadership' },
   { href: '#expertise', label: 'Expertise' },
   { href: '#education', label: 'Education' },
+  { href: '/blog', label: 'Blog', isPage: true },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { scrolled, activeSection } = useNavScroll()
+  const { view, navigate } = useNavigation()
+  const overlayRef = useRef(null)
 
   // Restore scroll when component unmounts while menu is open
   useEffect(() => {
     return () => { document.body.style.overflow = '' }
   }, [])
 
-  const handleClick = (e, href) => {
+  // Focus trap + Escape key for mobile menu
+  useEffect(() => {
+    if (!mobileOpen) return
+    const overlay = overlayRef.current
+    if (!overlay) return
+
+    const focusable = Array.from(overlay.querySelectorAll('a, button'))
+    focusable[0]?.focus()
+
+    const handleKey = (e) => {
+      if (e.key === 'Escape') {
+        setMobileOpen(false)
+        document.body.style.overflow = ''
+        return
+      }
+      if (e.key !== 'Tab') return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last?.focus() }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first?.focus() }
+      }
+    }
+
+    overlay.addEventListener('keydown', handleKey)
+    return () => overlay.removeEventListener('keydown', handleKey)
+  }, [mobileOpen])
+
+  const handleClick = (e, href, isPage = false) => {
     e.preventDefault()
     setMobileOpen(false)
     document.body.style.overflow = ''
-    const el = document.querySelector(href)
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 80
-      window.scrollTo({ top, behavior: 'smooth' })
+
+    if (isPage) {
+      navigate(href)
+      return
     }
+
+    // If currently on blog, navigate home first then scroll
+    if (view === 'blog') {
+      navigate('/')
+      setTimeout(() => smoothScrollTo(href), 150)
+      return
+    }
+
+    smoothScrollTo(href)
   }
 
   const toggleMobile = () => {
-    setMobileOpen(!mobileOpen)
-    document.body.style.overflow = !mobileOpen ? 'hidden' : ''
+    const next = !mobileOpen
+    setMobileOpen(next)
+    document.body.style.overflow = next ? 'hidden' : ''
+  }
+
+  const isLinkActive = (link) => {
+    if (link.isPage) return view === 'blog'
+    if (view === 'blog') return false
+    return activeSection === link.href.slice(1)
   }
 
   return (
@@ -46,8 +96,8 @@ export default function Navbar() {
       >
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8 flex items-center justify-between">
           <a
-            href="#hero"
-            onClick={(e) => handleClick(e, '#hero')}
+            href="/"
+            onClick={(e) => { e.preventDefault(); navigate('/') }}
             className="flex items-center gap-3 text-primary hover:text-primary-dark transition-colors"
           >
             <Logo size={34} />
@@ -64,9 +114,10 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
+                onClick={(e) => handleClick(e, link.href, link.isPage)}
+                aria-current={isLinkActive(link) ? 'true' : undefined}
                 className={`relative text-sm font-medium transition-colors py-2 hover-underline ${
-                  activeSection === link.href.slice(1)
+                  isLinkActive(link)
                     ? 'text-primary'
                     : scrolled
                       ? 'text-text-secondary hover:text-text'
@@ -76,7 +127,6 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            {/* CTA button */}
             <a
               href="#contact"
               onClick={(e) => handleClick(e, '#contact')}
@@ -89,8 +139,10 @@ export default function Navbar() {
           {/* Mobile toggle */}
           <button
             onClick={toggleMobile}
-            className="md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 z-[1001]"
             aria-label="Toggle navigation"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+            className="md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 z-[1001]"
           >
             <span className={`w-6 h-0.5 rounded transition-all duration-300 ${mobileOpen ? 'bg-white rotate-45 translate-y-[7px]' : scrolled ? 'bg-text' : 'bg-white'}`} />
             <span className={`w-6 h-0.5 rounded transition-all duration-300 ${mobileOpen ? 'bg-white opacity-0' : scrolled ? 'bg-text' : 'bg-white'}`} />
@@ -101,6 +153,11 @@ export default function Navbar() {
 
       {/* Mobile menu overlay */}
       <div
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        ref={overlayRef}
         className={`fixed inset-0 bg-dark/[0.98] z-[999] flex items-center justify-center transition-opacity duration-400 ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
@@ -110,7 +167,8 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              onClick={(e) => handleClick(e, link.href)}
+              onClick={(e) => handleClick(e, link.href, link.isPage)}
+              aria-current={isLinkActive(link) ? 'true' : undefined}
               className={`font-display text-3xl font-semibold text-white hover:text-primary transition-all duration-400 ${
                 mobileOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
               }`}

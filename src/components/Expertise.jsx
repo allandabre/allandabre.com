@@ -22,7 +22,7 @@ const skillCategories = [
     heading: 'Platforms & Systems',
     skills: [
       { name: 'Salesforce (Admin + BA Certified)', width: 95 },
-      { name: 'SAP ERP / EHS', width: 90 },
+      { name: 'SAP ERP', width: 90 },
       { name: 'Enterprise Security Architecture', width: 88 },
       { name: 'Cross-System Control Linkages', width: 92 },
     ],

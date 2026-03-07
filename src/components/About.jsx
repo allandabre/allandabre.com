@@ -1,18 +1,24 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const coreSkills = [
-  'Enterprise Risk Assessments',
-  'ITGC Design & Implementation',
-  'Business Process Control Design',
-  'Control Execution & Testing',
-  'SOX Compliance & Audit Coordination',
-  'Access & Change Management Controls',
-  'Revenue & Order-to-Cash Governance',
-  'AI-Powered Compliance Automation',
-  'Governance (NIST, COSO, ISO 27001)',
-  'ERP & CRM Security Architecture',
-  'Continuous Control Monitoring & KRIs',
-  'Executive & Audit Committee Reporting',
+  { label: 'Enterprise Risk Assessments', group: 'risk' },
+  { label: 'ITGC Design & Implementation', group: 'risk' },
+  { label: 'Business Process Control Design', group: 'risk' },
+  { label: 'Control Execution & Testing', group: 'risk' },
+  { label: 'SOX Compliance & Audit Coordination', group: 'risk' },
+  { label: 'Access & Change Management Controls', group: 'risk' },
+  { label: 'Revenue & Order-to-Cash Governance', group: 'risk' },
+  { label: 'AI-Powered Compliance Automation', group: 'risk' },
+  { label: 'Governance (NIST, COSO, ISO 27001)', group: 'risk' },
+  { label: 'ERP & CRM Security Architecture', group: 'risk' },
+  { label: 'Continuous Control Monitoring & KRIs', group: 'risk' },
+  { label: 'Executive & Audit Committee Reporting', group: 'risk' },
+  { label: 'Product Requirements & Specifications', group: 'product' },
+  { label: 'Functional & Technical Design', group: 'product' },
+  { label: 'UAT & Acceptance Test Coordination', group: 'product' },
+  { label: 'Stakeholder Workshops & Facilitation', group: 'product' },
+  { label: 'Agile Delivery', group: 'product' },
+  { label: 'AI Product Development', group: 'product' },
 ]
 
 const certifications = [
@@ -53,6 +59,9 @@ const highlights = [
   },
 ]
 
+const riskSkills = coreSkills.filter(s => s.group === 'risk')
+const productSkills = coreSkills.filter(s => s.group === 'product')
+
 export default function About() {
   const [labelRef, labelVis] = useScrollReveal()
   const [titleRef, titleVis] = useScrollReveal()
@@ -77,7 +86,7 @@ export default function About() {
             </span>
             <h2
               ref={titleRef}
-              className={`font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-text transition-all duration-700 ${
+              className={`font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-text transition-all duration-700 mb-8 ${
                 titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
@@ -86,10 +95,50 @@ export default function About() {
               meets AI innovation.
             </h2>
 
+            {/* Core Competencies */}
+            <div
+              ref={skillsRef}
+              className={`transition-all duration-700 ${
+                skillsVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              <span className="block text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Risk & Compliance</span>
+              <div className="grid grid-cols-2 gap-1.5 mb-6">
+                {riskSkills.map((skill, i) => (
+                  <span
+                    key={skill.label}
+                    title={skill.label}
+                    className={`px-3 py-1.5 bg-white border border-border-light rounded-full text-xs font-medium text-text-secondary hover:border-primary/30 hover:text-primary hover-pop transition-all duration-500 truncate ${
+                      skillsVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                    }`}
+                    style={{ transitionDelay: skillsVis ? `${i * 40}ms` : '0ms' }}
+                  >
+                    {skill.label}
+                  </span>
+                ))}
+              </div>
+
+              <span className="block text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Product Development</span>
+              <div className="grid grid-cols-2 gap-1.5 mb-8">
+                {productSkills.map((skill, i) => (
+                  <span
+                    key={skill.label}
+                    title={skill.label}
+                    className={`px-3 py-1.5 bg-white border border-border-light rounded-full text-xs font-medium text-text-secondary hover:border-primary/30 hover:text-primary hover-pop transition-all duration-500 truncate ${
+                      skillsVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                    }`}
+                    style={{ transitionDelay: skillsVis ? `${(riskSkills.length + i) * 40}ms` : '0ms' }}
+                  >
+                    {skill.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+
             {/* Certifications */}
             <div
               ref={certRef}
-              className={`mt-8 space-y-3 transition-all duration-700 ${
+              className={`space-y-3 transition-all duration-700 ${
                 certVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
@@ -151,7 +200,7 @@ export default function About() {
             {/* Highlight cards — 2-column grid, staggered */}
             <div
               ref={hlRef}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3"
             >
               {highlights.map((h, i) => (
                 <div
@@ -170,29 +219,6 @@ export default function About() {
                   <p className="text-xs text-text-secondary leading-relaxed">{h.desc}</p>
                 </div>
               ))}
-            </div>
-
-            {/* Skills grid — staggered */}
-            <div
-              ref={skillsRef}
-              className={`transition-all duration-700 ${
-                skillsVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              <span className="block text-xs font-semibold uppercase tracking-widest text-text-muted mb-4">Core Competencies</span>
-              <div className="flex flex-wrap gap-2">
-                {coreSkills.map((skill, i) => (
-                  <span
-                    key={skill}
-                    className={`px-3 py-1.5 bg-white border border-border-light rounded-full text-xs font-medium text-text-secondary hover:border-primary/30 hover:text-primary hover-pop transition-all duration-500 ${
-                      skillsVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                    }`}
-                    style={{ transitionDelay: skillsVis ? `${i * 40}ms` : '0ms' }}
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
         </div>

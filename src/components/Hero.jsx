@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useScrollReveal, useCountUp } from '../hooks/useScrollReveal'
+import { smoothScrollTo } from '../utils/smoothScroll'
 
 const roles = [
   'Risk Assessment & Controls Design',
@@ -63,7 +64,7 @@ export default function Hero() {
   const [ref2, vis2] = useScrollReveal()
   const [ref3, vis3] = useScrollReveal()
   const [ref4, vis4] = useScrollReveal()
-  const [vidRef, vidVis] = useScrollReveal()
+  const [photoRef, photoVis] = useScrollReveal()
   return (
     <section id="hero" className="relative bg-dark pt-28 md:pt-36 pb-16 min-h-screen flex flex-col justify-center">
       {/* Subtle grid pattern */}
@@ -129,14 +130,7 @@ export default function Hero() {
             >
               <a
                 href="#experience"
-                onClick={(e) => {
-                  e.preventDefault()
-                  const el = document.querySelector('#experience')
-                  if (el) {
-                    const top = el.getBoundingClientRect().top + window.scrollY - 80
-                    window.scrollTo({ top, behavior: 'smooth' })
-                  }
-                }}
+                onClick={(e) => { e.preventDefault(); smoothScrollTo('#experience') }}
                 className="group px-7 py-3 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 flex items-center gap-2"
               >
                 See My Work
@@ -146,14 +140,7 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
-                onClick={(e) => {
-                  e.preventDefault()
-                  const el = document.querySelector('#contact')
-                  if (el) {
-                    const top = el.getBoundingClientRect().top + window.scrollY - 80
-                    window.scrollTo({ top, behavior: 'smooth' })
-                  }
-                }}
+                onClick={(e) => { e.preventDefault(); smoothScrollTo('#contact') }}
                 className="px-7 py-3 text-white border border-white/20 rounded-full font-semibold text-sm hover:bg-white/10 hover:-translate-y-0.5 transition-all duration-300"
               >
                 Get in Touch
@@ -174,9 +161,9 @@ export default function Hero() {
 
           {/* Right — Photo */}
           <div
-            ref={vidRef}
+            ref={photoRef}
             className={`flex justify-center lg:justify-end transition-all duration-700 delay-300 ${
-              vidVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              photoVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
           >
             <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20 ring-4 ring-white/5 hover-card">

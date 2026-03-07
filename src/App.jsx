@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
+import { NavigationProvider, useNavigation } from './context/NavigationContext'
 import { useScrollState } from './hooks/useScrollState'
+import ErrorBoundary from './components/ErrorBoundary'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -10,6 +12,7 @@ import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import SchrodingerSection from './components/SchrodingerSection'
+import Blog from './pages/Blog'
 
 function ScrollProgress({ progress }) {
   return (
@@ -38,12 +41,12 @@ function BackToTop({ show }) {
   )
 }
 
-export default function App() {
+function AppContent() {
+  const { view } = useNavigation()
   const [loaded, setLoaded] = useState(false)
   const { progress, showBackToTop } = useScrollState()
 
   useEffect(() => {
-    // Short delay so the fade-in is visible
     const timer = setTimeout(() => setLoaded(true), 50)
     return () => clearTimeout(timer)
   }, [])
@@ -52,16 +55,34 @@ export default function App() {
     <div className={`transition-opacity duration-700 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`}>
       <ScrollProgress progress={progress} />
       <Navbar />
-      <Hero />
-      <SchrodingerSection />
-      <About />
-      <Experience />
-      <AILeadership />
-      <Expertise />
-      <Education />
-      <Contact />
+      <main id="main-content">
+        {view === 'blog' ? (
+          <Blog />
+        ) : (
+          <>
+            <Hero />
+            <SchrodingerSection />
+            <About />
+            <Experience />
+            <AILeadership />
+            <Expertise />
+            <Education />
+            <Contact />
+          </>
+        )}
+      </main>
       <Footer />
       <BackToTop show={showBackToTop} />
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <ErrorBoundary>
+      <NavigationProvider>
+        <AppContent />
+      </NavigationProvider>
+    </ErrorBoundary>
   )
 }

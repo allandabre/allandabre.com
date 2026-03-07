@@ -1,4 +1,6 @@
 import { useMemo } from 'react'
+import { useNavigation } from '../context/NavigationContext'
+import { smoothScrollTo } from '../utils/smoothScroll'
 import Logo from './Logo'
 
 const links = [
@@ -8,22 +10,27 @@ const links = [
   { href: '#expertise', label: 'Expertise' },
   { href: '#education', label: 'Education' },
   { href: '#contact', label: 'Contact' },
+  { href: '/blog', label: 'Blog', isPage: true },
 ]
 
-export default function Footer() {
-  // Email constructed at runtime so bots can't scrape it from HTML source
-  const email = useMemo(() => {
-    const parts = ['allan', '.', 'dabre', '@', 'gmail', '.', 'com']
-    return parts.join('')
-  }, [])
+function openMailto(email) {
+  const a = document.createElement('a')
+  a.href = `mailto:${email}`
+  a.style.display = 'none'
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+}
 
-  const handleClick = (e, href) => {
+export default function Footer() {
+  const { view, navigate } = useNavigation()
+  const email = useMemo(() => ['allan', '.', 'dabre', '@', 'gmail', '.', 'com'].join(''), [])
+
+  const handleClick = (e, href, isPage = false) => {
     e.preventDefault()
-    const el = document.querySelector(href)
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 80
-      window.scrollTo({ top, behavior: 'smooth' })
-    }
+    if (isPage) { navigate(href); return }
+    if (view === 'blog') { navigate('/'); setTimeout(() => smoothScrollTo(href), 150); return }
+    smoothScrollTo(href)
   }
 
   return (
@@ -44,7 +51,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-white/40 mb-4">
-              Senior Manager, PwC · Risk & Compliance · AI Innovation
+              Leader, PwC · Risk & Compliance · AI Innovation
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -58,12 +65,8 @@ export default function Footer() {
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
               </a>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault()
-                  window.location.href = `mailto:${email}`
-                }}
+              <button
+                onClick={() => openMailto(email)}
                 className="w-11 h-11 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/40 hover:text-primary hover:border-primary/30 hover:bg-white/10 transition-all duration-300"
                 aria-label="Email"
               >
@@ -71,7 +74,7 @@ export default function Footer() {
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                   <path d="M22 7l-10 6L2 7" />
                 </svg>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -82,7 +85,7 @@ export default function Footer() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleClick(e, link.href)}
+                  onClick={(e) => handleClick(e, link.href, link.isPage)}
                   className="text-sm text-white/40 hover:text-primary transition-colors duration-200 hover-underline"
                 >
                   {link.label}

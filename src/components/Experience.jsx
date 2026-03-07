@@ -28,38 +28,37 @@ const jobs = [
     date: 'June 2015 — Present',
     company: 'PwC Consulting',
     location: 'USA',
-    role: 'Senior Manager — Risk & Compliance',
+    role: 'Leader — Risk & Compliance',
     duration: '10+ years',
-    summary: 'Leading enterprise-wide risk and compliance programs end-to-end -- conducting risk assessments, designing and implementing ITGCs and business process controls, directing control testing programs, and building AI-powered tools that automate compliance workflows. Directing $5M+ engagements and reporting to executive leadership.',
+    summary: 'Leading enterprise risk and compliance programs end-to-end across the full controls lifecycle — while building and shipping AI-powered tools that automate the manual effort that typically defines this work. Directing $5M+ engagements, reporting to executive leadership, and operating across all three lines of defense.',
     bullets: [
-      { text: 'Conducted comprehensive risk assessments across financial reporting, technology, and operational domains -- evaluating inherent risk, control effectiveness, and residual risk to define scoping and prioritize audit focus areas for SOX engagements.', impact: 'Risk assessment leadership' },
-      { text: 'Designed and implemented IT General Controls (ITGCs) covering access management, change management, IT operations, and system development lifecycle (SDLC) across Salesforce, SAP ERP, and 25+ ancillary financial systems.', impact: 'ITGC across 25+ systems' },
-      { text: 'Architected business process controls across revenue, order-to-cash, procure-to-pay, and financial close cycles -- including segregation of duties, three-way matching, management review controls, and automated application controls embedded in ERP workflows.', impact: 'End-to-end process controls' },
-      { text: 'Led control execution and testing programs defining test plans, sampling methodologies, and evidence standards. Coordinated walkthroughs and operating effectiveness testing with internal teams and external auditors, managing remediation of identified deficiencies.', impact: 'Full testing lifecycle' },
-      { text: 'Engineered cross-system control linkages governing 22,000+ users, ensuring consistent access provisioning, periodic recertification, and automated deprovisioning across integrated ERP and CRM environments.', impact: '22K+ users governed' },
-      { text: 'Built SOX controls over Information Produced by the Entity (IPE), standardizing validation procedures and data integrity checks across 25+ cross-system interfaces to ensure completeness and accuracy of reports used in control execution.', impact: '25+ interface validations' },
-      { text: 'Designed and shipped AI-driven compliance tools integrating LLMs (OpenAI, Anthropic, Google) with ERP/CRM data -- automating control assessment, detecting configuration anomalies, generating risk narratives, and reducing manual review cycles by 70%.', impact: '70% effort reduction' },
-      { text: 'Optimized enterprise risk governance through 30+ cross-functional workshops across revenue and order-to-cash processes, embedding automated control enhancements that delivered $15M in documented efficiency gains.', impact: '$15M efficiency gains' },
-      { text: 'Built second line of defense frameworks for high-growth technology clients including telehealth and EV manufacturers -- designing risk assessment methodologies and control monitoring approaches that scale with hypergrowth.', impact: 'High-growth tech clients' },
-      { text: 'Applied Agile delivery practices within compliance programs, embedding sprint-based checkpoints and iterative control design cycles that improved adaptability and reduced project delays by 15%.', impact: '15% fewer delays' },
+      { text: 'Directed $5M+ enterprise risk and compliance engagements — scoping programs, leading multi-disciplinary teams, and reporting outcomes directly to C-suite and board-level stakeholders across technology, healthcare, and consumer industries.', impact: '$5M+ programs directed' },
+      { text: 'Conducted enterprise risk assessments across financial reporting, technology, and operational domains — evaluating inherent risk, control effectiveness, and residual risk to define SOX scoping and prioritize audit focus areas for complex, multi-system environments.', impact: 'Risk assessment leadership' },
+      { text: 'Designed and implemented IT General Controls (ITGCs) covering access management, change management, IT operations, and SDLC across 25+ enterprise systems — ensuring controls were designed to operate effectively and withstand external audit scrutiny.', impact: 'ITGC across 25+ systems' },
+      { text: 'Architected business process controls across revenue, order-to-cash, procure-to-pay, and financial close cycles — embedding segregation of duties, three-way matching, management review controls, and automated application controls directly into ERP workflows.', impact: 'End-to-end process controls' },
+      { text: 'Engineered cross-system access governance covering 22,000+ users — standardizing provisioning, periodic recertification, and automated deprovisioning across integrated enterprise environments to eliminate access risk at scale.', impact: '22K+ users governed' },
+      { text: 'Delivered $15M in documented efficiency gains through 30+ cross-functional process workshops — embedding automated control enhancements that reduced manual effort and improved control reliability across revenue and financial close cycles.', impact: '$15M efficiency gains' },
+      { text: 'Built second-line-of-defense risk frameworks for high-growth technology companies — including telehealth and EV manufacturers — designing control monitoring approaches and risk assessment methodologies that scale with rapid growth and regulatory change.', impact: 'High-growth tech clients' },
+      { text: 'Designed and shipped production AI systems that ingest enterprise system data, run it through structured LLM pipelines, and surface control gaps, access anomalies, and configuration issues — reducing audit cycle effort by 70% across engagements.', impact: '70% effort reduction' },
+      { text: 'Co-led a firm-wide strategic AI initiative at PwC — driving business development, designing proof-of-concepts, and building a go-to-market approach that expanded the practice into AI-enhanced risk and compliance engagements.', impact: 'AI initiative leadership' },
     ],
-    tags: ['Risk Assessment', 'ITGC', 'Business Process Controls', 'Control Testing', 'SOX', 'Salesforce', 'SAP ERP', 'AI/LLMs', 'Agile'],
+    tags: ['Risk Assessment', 'ITGC', 'Business Process Controls', 'AI/LLMs', 'SOX', 'Control Testing', 'Salesforce', 'SAP ERP', 'Agile'],
     showLine: true,
   },
   {
     date: 'March 2010 — August 2013',
     company: 'Accenture',
     location: 'Mumbai, India',
-    role: 'Technical Product Specialist',
+    role: 'Technical Product Analyst',
     duration: '3+ years',
-    summary: 'Building the technical foundations in fraud prevention, enterprise security architecture, control design, and systems implementation that became the bedrock of my career in risk and compliance.',
+    summary: 'Technical product analyst role focused on SAP implementation — translating business requirements into detailed product specifications, configuring module functionality, and driving end-to-end UAT and adoption for enterprise clients.',
     bullets: [
-      { text: 'Developed fraud prevention frameworks with both automated application controls and manual detective controls -- designing a pricing override governance model with approval workflows, exception reporting, and audit trails that delivered $5M in savings.', impact: '$5M in savings' },
-      { text: 'Redesigned Salesforce security architecture by implementing role-based access controls (RBAC), optimizing permission sets and profiles, and embedding automated periodic access reviews and recertification processes that reduced access-related incidents by 40%.', impact: '40% fewer incidents' },
-      { text: 'Built enterprise KRI tracking and continuous control monitoring frameworks, defining key risk indicators, control thresholds, and escalation procedures. Delivered real-time dashboards that improved control assessment precision by 30%.', impact: '30% precision gain' },
-      { text: 'Created 10+ detailed technical specifications for control configurations within SAP EHS modules. Designed test scripts, conducted user acceptance testing, and led end-user training to ensure effective control adoption across business units.', impact: '10+ specifications' },
+      { text: 'Authored 10+ detailed technical product specifications for SAP module configurations — covering functional requirements, system behaviour, control logic, and acceptance criteria aligned to client business processes.', impact: '10+ specs delivered' },
+      { text: 'Led requirements gathering workshops with business stakeholders to capture process flows, edge cases, and system constraints — translating outputs into structured functional specs consumed by offshore development teams.', impact: 'Requirements leadership' },
+      { text: 'Coordinated end-to-end user acceptance testing across multiple SAP modules — building test scripts, managing defect triage, and working with stakeholders to validate system behaviour against documented requirements.', impact: 'UAT ownership' },
+      { text: 'Delivered end-user training and change management support across business units — driving adoption of newly configured SAP modules and ensuring users could operate within defined process and compliance boundaries.', impact: 'Training & adoption' },
     ],
-    tags: ['Salesforce', 'SAP EHS', 'Fraud Prevention', 'RBAC', 'KRI Monitoring', 'Access Controls', 'Control Testing'],
+    tags: ['SAP', 'Requirements Gathering', 'Product Specifications', 'UAT', 'Functional Design', 'Change Management'],
     showLine: false,
   },
 ]
@@ -120,8 +119,8 @@ function TimelineItem({ job, index }) {
         <p className="text-[15px] leading-[1.7] text-text-secondary mb-5 font-medium">{job.summary}</p>
 
         <div className="mb-5 space-y-3">
-          {job.bullets.map((b) => (
-            <BulletItem key={b.impact} text={b.text} impact={b.impact} />
+          {job.bullets.map((b, i) => (
+            <BulletItem key={i} text={b.text} impact={b.impact} />
           ))}
         </div>
 
@@ -162,8 +161,8 @@ export default function Experience() {
             titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          14+ years of impact<br />
-          across regulated industries.
+          14+ years building<br />
+          and automating compliance.
         </h2>
 
         {/* Impact metrics banner — enhanced hierarchy */}

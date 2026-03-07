@@ -25,7 +25,7 @@ const leadership = [
   {
     title: 'Strategic AI Initiative Lead',
     org: 'PwC',
-    text: 'Co-led a firm-wide initiative to drive AI-powered business development -- designing proof-of-concepts, developing practice growth strategies, and expanding AI-enhanced service offerings to new markets.',
+    text: 'Co-led a firm-wide initiative to drive AI-powered business development -- designing proofs of concept, developing practice growth strategies, and expanding AI-enhanced service offerings to new markets.',
     impact: 'New service offerings launched',
   },
   {

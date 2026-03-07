@@ -27,7 +27,12 @@ export default function Contact() {
     // Opens the user's real email client with pre-filled fields
     const body = `From: ${name} (${senderEmail})\n\n${message}`
     const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href = mailtoUrl
+    const a = document.createElement('a')
+    a.href = mailtoUrl
+    a.style.display = 'none'
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
 
     setStatus('sent')
     setTimeout(() => {
@@ -67,7 +72,12 @@ export default function Contact() {
                 href="#"
                 onClick={(e) => {
                   e.preventDefault()
-                  window.location.href = `mailto:${email}`
+                  const a = document.createElement('a')
+                  a.href = `mailto:${email}`
+                  a.style.display = 'none'
+                  document.body.appendChild(a)
+                  a.click()
+                  document.body.removeChild(a)
                 }}
                 className="flex items-center gap-3 p-4 bg-surface-alt rounded-xl border border-border-light hover:border-primary/30 hover-card group"
               >
