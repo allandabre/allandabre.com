@@ -159,19 +159,10 @@ export default function Navbar() {
         aria-label="Navigation menu"
         ref={overlayRef}
         onClick={toggleMobile}
-        className={`fixed inset-0 bg-dark/[0.98] z-[999] flex items-center justify-center relative transition-opacity duration-400 ${
+        className={`fixed inset-0 bg-dark/[0.98] z-[999] flex items-center justify-center transition-opacity duration-400 ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <button
-          onClick={toggleMobile}
-          aria-label="Close navigation"
-          className={`absolute top-6 right-6 w-11 h-11 flex items-center justify-center text-white/40 hover:text-white transition-all duration-300 ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="w-6 h-6">
-            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
         <div className="flex flex-col items-center gap-6" onClick={(e) => e.stopPropagation()}>
           {[...navLinks, { href: '#contact', label: 'Contact' }].map((link, i) => (
             <a
