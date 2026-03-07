@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { openMailto } from '../utils/mailto'
 
 // Email constructed at runtime so bots can't scrape it from HTML source
 function useObfuscatedEmail() {
@@ -27,12 +28,7 @@ export default function Contact() {
     // Opens the user's real email client with pre-filled fields
     const body = `From: ${name} (${senderEmail})\n\n${message}`
     const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    const a = document.createElement('a')
-    a.href = mailtoUrl
-    a.style.display = 'none'
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
+    openMailto(mailtoUrl)
 
     setStatus('sent')
     setTimeout(() => {
@@ -72,12 +68,7 @@ export default function Contact() {
                 href="#"
                 onClick={(e) => {
                   e.preventDefault()
-                  const a = document.createElement('a')
-                  a.href = `mailto:${email}`
-                  a.style.display = 'none'
-                  document.body.appendChild(a)
-                  a.click()
-                  document.body.removeChild(a)
+                  openMailto(`mailto:${email}`)
                 }}
                 className="flex items-center gap-3 p-4 bg-surface-alt rounded-xl border border-border-light hover:border-primary/30 hover-card group"
               >

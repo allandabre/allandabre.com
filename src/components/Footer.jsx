@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { useNavigation } from '../context/NavigationContext'
 import { smoothScrollTo } from '../utils/smoothScroll'
+import { openMailto } from '../utils/mailto'
 import Logo from './Logo'
 
 const links = [
@@ -12,15 +13,6 @@ const links = [
   { href: '#contact', label: 'Contact' },
   { href: '/blog', label: 'Blog', isPage: true },
 ]
-
-function openMailto(email) {
-  const a = document.createElement('a')
-  a.href = `mailto:${email}`
-  a.style.display = 'none'
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
-}
 
 export default function Footer() {
   const { view, navigate } = useNavigation()
@@ -66,7 +58,7 @@ export default function Footer() {
                 </svg>
               </a>
               <button
-                onClick={() => openMailto(email)}
+                onClick={() => openMailto(`mailto:${email}`)}
                 className="w-11 h-11 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/40 hover:text-primary hover:border-primary/30 hover:bg-white/10 transition-all duration-300"
                 aria-label="Email"
               >

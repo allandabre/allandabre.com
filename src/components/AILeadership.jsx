@@ -41,6 +41,7 @@ const techStack = [
 
 function AICard({ product, index }) {
   const [ref, isVisible] = useScrollReveal()
+  const isProd = product.status === 'Production'
 
   return (
     <div
@@ -51,16 +52,14 @@ function AICard({ product, index }) {
       style={{ transitionDelay: `${index * 120}ms` }}
     >
       {/* Top accent bar */}
-      <div className={`h-0.5 rounded-t-2xl ${product.status === 'Production' ? 'bg-success' : 'bg-primary/40'}`} />
+      <div className={`h-0.5 rounded-t-2xl ${isProd ? 'bg-success' : 'bg-primary/40'}`} />
 
       <div className="p-6 md:p-8 flex flex-col flex-1">
         {/* Header */}
         <div className="flex items-center justify-between mb-5">
           <span className="text-xs font-bold text-text-muted tracking-widest">{product.number}</span>
           <span className={`px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full ${
-            product.status === 'Production'
-              ? 'bg-success/10 text-success'
-              : 'bg-primary-light text-primary'
+            isProd ? 'bg-success/10 text-success' : 'bg-primary-light text-primary'
           }`}>
             {product.status}
           </span>
