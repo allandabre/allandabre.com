@@ -30,12 +30,13 @@ const products = [
 ]
 
 const techStack = [
-  { name: 'OpenAI', desc: 'GPT-4o, o1, o3' },
   { name: 'Anthropic', desc: 'Claude Sonnet & Opus' },
+  { name: 'OpenAI', desc: 'GPT-4o, o1, o3' },
   { name: 'Google', desc: 'Gemini Pro' },
   { name: 'Python', desc: 'Backend & pipelines' },
   { name: 'React', desc: 'Frontend' },
   { name: 'Cursor AI', desc: 'Agentic development' },
+  { name: 'Claude Code', desc: 'Agentic development' },
 ]
 
 function AICard({ product, index }) {
@@ -130,9 +131,10 @@ export default function AILeadership() {
           className={`transition-all duration-700 ${introVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <p className="text-lg text-text-secondary max-w-[700px] leading-relaxed mb-4">
-            These are production systems — not demos. Each one automates a compliance workflow
-            that previously required weeks of manual effort: assessing controls, identifying gaps,
-            generating narratives, monitoring risk posture. Built end-to-end and actively deployed.
+            These are AI-powered tools used directly in client engagements — not demos. Each one automates
+            a compliance workflow that previously required weeks of manual effort: assessing controls,
+            identifying gaps, generating narratives, monitoring risk posture. Used across risk and
+            compliance engagements to deliver faster, more accurate outcomes for clients.
           </p>
           <p className="text-lg text-text-secondary max-w-[700px] leading-relaxed mb-10">
             I also co-led a strategic AI initiative at PwC — driving business development,

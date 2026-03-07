@@ -190,11 +190,11 @@ export default function About() {
                 text1Vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              I also build <strong className="text-text font-semibold">production AI
-              tools</strong> that automate compliance workflows -- using LLMs to detect
+              I also leverage <strong className="text-text font-semibold">AI-powered
+              tooling</strong> within compliance engagements — using LLMs to detect
               configuration anomalies, generate control narratives, assess risk postures,
               and accelerate testing cycles. This combination of deep risk expertise and
-              hands-on AI development is central to how I approach every engagement.
+              applied AI is central to how I approach every engagement.
             </p>
 
             {/* Highlight cards — 2-column grid, staggered */}
