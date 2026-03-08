@@ -36,13 +36,15 @@ const skillCategories = [
       { name: 'Full-Stack Product Development', width: 85 },
     ],
   },
-]
-
-const industries = [
-  { name: 'Technology', sub: 'Telehealth, EV, SaaS', icon: '01' },
-  { name: 'Healthcare', sub: 'Regulated & Telehealth', icon: '02' },
-  { name: 'Manufacturing', sub: 'Industrial & EV OEMs', icon: '03' },
-  { name: 'Consumer', sub: 'Goods, Retail & CPG', icon: '04' },
+  {
+    heading: 'Product Development',
+    skills: [
+      { name: 'Product Requirements & Specifications', width: 97 },
+      { name: 'UAT & Acceptance Test Coordination', width: 97 },
+      { name: 'Stakeholder Workshops & Facilitation', width: 97 },
+      { name: 'Agile Delivery', width: 97 },
+    ],
+  },
 ]
 
 function SkillBar({ name, width, delay }) {
@@ -105,7 +107,6 @@ function SkillCategory({ heading, skills, index }) {
 export default function Expertise() {
   const [labelRef, labelVis] = useScrollReveal()
   const [titleRef, titleVis] = useScrollReveal()
-  const [indRef, indVis] = useScrollReveal()
 
   return (
     <section id="expertise" className="py-20 md:py-32 bg-surface-warm">
@@ -132,7 +133,7 @@ export default function Expertise() {
             titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          Three interconnected domains of mastery that reinforce each other to
+          Four interconnected domains of mastery that reinforce each other to
           deliver stronger outcomes.
         </p>
 
@@ -140,32 +141,6 @@ export default function Expertise() {
           {skillCategories.map((cat, i) => (
             <SkillCategory key={cat.heading} heading={cat.heading} skills={cat.skills} index={i} />
           ))}
-
-          {/* Industries card — staggered items */}
-          <div
-            ref={indRef}
-            className={`bg-white p-6 md:p-8 rounded-2xl border border-border-light hover:border-primary/30 hover-card transition-all duration-700 ${
-              indVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-            style={{ transitionDelay: '360ms' }}
-          >
-            <h3 className="font-display text-lg font-semibold tracking-tight mb-6 text-text">Industry Experience</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {industries.map((ind, i) => (
-                <div
-                  key={ind.name}
-                  className={`p-5 bg-surface-alt border border-border-light rounded-xl hover:border-primary/30 hover-lift text-center transition-all duration-500 ${
-                    indVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                  }`}
-                  style={{ transitionDelay: indVis ? `${400 + i * 80}ms` : '0ms' }}
-                >
-                  <span className="block text-[10px] font-bold text-primary/40 tracking-widest mb-1">{ind.icon}</span>
-                  <span className="block text-sm font-semibold text-text mb-1">{ind.name}</span>
-                  <span className="block text-xs text-text-muted">{ind.sub}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

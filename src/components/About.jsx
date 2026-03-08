@@ -1,26 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
-const coreSkills = [
-  { label: 'Enterprise Risk Assessments', group: 'risk' },
-  { label: 'ITGC Design & Implementation', group: 'risk' },
-  { label: 'Business Process Control Design', group: 'risk' },
-  { label: 'Control Execution & Testing', group: 'risk' },
-  { label: 'SOX Compliance & Audit Coordination', group: 'risk' },
-  { label: 'Access & Change Management Controls', group: 'risk' },
-  { label: 'Revenue & Order-to-Cash Governance', group: 'risk' },
-  { label: 'AI-Powered Compliance Automation', group: 'risk' },
-  { label: 'Governance (NIST, COSO, ISO 27001)', group: 'risk' },
-  { label: 'ERP & CRM Security Architecture', group: 'risk' },
-  { label: 'Continuous Control Monitoring & KRIs', group: 'risk' },
-  { label: 'Executive & Audit Committee Reporting', group: 'risk' },
-  { label: 'Product Requirements & Specifications', group: 'product' },
-  { label: 'Functional & Technical Design', group: 'product' },
-  { label: 'UAT & Acceptance Test Coordination', group: 'product' },
-  { label: 'Stakeholder Workshops & Facilitation', group: 'product' },
-  { label: 'Agile Delivery', group: 'product' },
-  { label: 'AI Product Development', group: 'product' },
-]
-
 const certifications = [
   'Salesforce Certified Administrator',
   'Salesforce Certified Business Analyst',
@@ -59,15 +38,11 @@ const highlights = [
   },
 ]
 
-const riskSkills = coreSkills.filter(s => s.group === 'risk')
-const productSkills = coreSkills.filter(s => s.group === 'product')
-
 export default function About() {
   const [labelRef, labelVis] = useScrollReveal()
   const [titleRef, titleVis] = useScrollReveal()
   const [text1Ref, text1Vis] = useScrollReveal()
   const [hlRef, hlVis] = useScrollReveal()
-  const [skillsRef, skillsVis] = useScrollReveal()
   const [certRef, certVis] = useScrollReveal()
 
   return (
@@ -94,46 +69,6 @@ export default function About() {
               <br />
               meets AI innovation.
             </h2>
-
-            {/* Core Competencies */}
-            <div
-              ref={skillsRef}
-              className={`transition-all duration-700 ${
-                skillsVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              <span className="block text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Risk & Compliance</span>
-              <div className="grid grid-cols-2 gap-1.5 mb-6">
-                {riskSkills.map((skill, i) => (
-                  <span
-                    key={skill.label}
-                    title={skill.label}
-                    className={`px-3 py-1.5 bg-white border border-border-light rounded-full text-xs font-medium text-text-secondary hover:border-primary/30 hover:text-primary hover-pop transition-all duration-500 truncate ${
-                      skillsVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                    }`}
-                    style={{ transitionDelay: skillsVis ? `${i * 40}ms` : '0ms' }}
-                  >
-                    {skill.label}
-                  </span>
-                ))}
-              </div>
-
-              <span className="block text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">Product Development</span>
-              <div className="grid grid-cols-2 gap-1.5 mb-8">
-                {productSkills.map((skill, i) => (
-                  <span
-                    key={skill.label}
-                    title={skill.label}
-                    className={`px-3 py-1.5 bg-white border border-border-light rounded-full text-xs font-medium text-text-secondary hover:border-primary/30 hover:text-primary hover-pop transition-all duration-500 truncate ${
-                      skillsVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                    }`}
-                    style={{ transitionDelay: skillsVis ? `${(riskSkills.length + i) * 40}ms` : '0ms' }}
-                  >
-                    {skill.label}
-                  </span>
-                ))}
-              </div>
-            </div>
 
             {/* Certifications */}
             <div

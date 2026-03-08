@@ -163,6 +163,13 @@ export default function Navbar() {
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
+        <button
+          onClick={toggleMobile}
+          aria-label="Close navigation"
+          className="absolute top-5 right-5 w-10 h-10 flex items-center justify-center text-2xl text-white/40 hover:text-white transition-colors duration-200"
+        >
+          ✕
+        </button>
         <div className="flex flex-col items-center gap-6" onClick={(e) => e.stopPropagation()}>
           {[...navLinks, { href: '#contact', label: 'Contact' }].map((link, i) => (
             <a
