@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigation } from '../context/NavigationContext'
+import { useNavigation } from '../context/useNavigation'
 
 const topics = [
   'AI in Compliance', 'LLM Architecture', 'SOX Automation',
@@ -114,7 +114,9 @@ export default function Blog() {
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <span className="text-sm text-white/25 font-medium">Articles dropping soon —</span>
+            <span className="text-sm text-white/35 font-medium max-w-[320px] leading-relaxed">
+              Longer-form articles will live here when published — for now, I share commentary on LinkedIn.
+            </span>
             <a
               href="https://www.linkedin.com/in/allandabre/"
               target="_blank"

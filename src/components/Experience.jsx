@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useScrollReveal, useCountUp } from '../hooks/useScrollReveal'
 
 const impactMetrics = [
@@ -45,6 +46,8 @@ const jobs = [
     ],
     tags: ['Risk Assessment', 'ITGC', 'Business Process Controls', 'AI/LLMs', 'SOX', 'Control Testing', 'Salesforce', 'SAP ERP', 'Agile'],
     showLine: true,
+    /** Show this many bullets before “Show more” (skimmers get the headline wins). */
+    collapseAfter: 5,
   },
   {
     date: 'March 2010 — August 2013',
@@ -84,6 +87,13 @@ function BulletItem({ text, impact }) {
 
 function TimelineItem({ job, index }) {
   const [ref, isVisible] = useScrollReveal()
+  const [expanded, setExpanded] = useState(false)
+  const cap = job.collapseAfter
+  const bullets = job.bullets
+  const hasCollapse = typeof cap === 'number' && bullets.length > cap
+  const shownBullets =
+    hasCollapse && !expanded ? bullets.slice(0, cap) : bullets
+  const moreCount = hasCollapse ? bullets.length - cap : 0
 
   return (
     <div
@@ -120,10 +130,22 @@ function TimelineItem({ job, index }) {
         <p className="text-[15px] leading-[1.7] text-text-secondary mb-5 font-medium">{job.summary}</p>
 
         <div className="mb-5 space-y-3">
-          {job.bullets.map((b, i) => (
+          {shownBullets.map((b, i) => (
             <BulletItem key={i} text={b.text} impact={b.impact} />
           ))}
         </div>
+
+        {hasCollapse && (
+          <div className="mb-5">
+            <button
+              type="button"
+              onClick={() => setExpanded((e) => !e)}
+              className="text-sm font-semibold text-primary hover:text-primary-dark underline-offset-2 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded"
+            >
+              {expanded ? 'Show fewer highlights' : `Show ${moreCount} more highlights`}
+            </button>
+          </div>
+        )}
 
         <div className="flex flex-wrap gap-2">
           {job.tags.map((tag) => (

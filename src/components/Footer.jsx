@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useNavigation } from '../context/NavigationContext'
+import { useNavigation } from '../context/useNavigation'
 import { smoothScrollTo } from '../utils/smoothScroll'
 import { openMailto } from '../utils/mailto'
 import Logo from './Logo'

@@ -1,8 +1,7 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { NavContext } from './navContext'
 
-const NavContext = createContext(null)
-
-const getView = (path) => path === '/blog' ? 'blog' : 'home'
+const getView = (path) => (path === '/blog' ? 'blog' : 'home')
 
 export function NavigationProvider({ children }) {
   const [view, setView] = useState(() => getView(window.location.pathname))
@@ -25,5 +24,3 @@ export function NavigationProvider({ children }) {
     </NavContext.Provider>
   )
 }
-
-export const useNavigation = () => useContext(NavContext)

@@ -7,34 +7,34 @@ const certifications = [
 
 const highlights = [
   {
-    title: 'Risk Assessment & Mitigation',
-    desc: 'Enterprise risk assessments across financial, operational, and technology domains — aligned to COSO, NIST, and ISO 27001.',
+    title: 'AI-Powered Compliance Automation',
+    desc: 'End-to-end controls delivery platform: risk assessments, BPC frameworks, RCMs and narratives, completeness-and-accuracy testing over reports and key controls, anomaly detection — live in production on engagements.',
+    metric: 'Production',
+  },
+  {
+    title: 'SOX IT & System Risk',
+    desc: 'Scoping, inherent/residual risk, and prioritization for SOX IT — across financial reporting, technology, and operational domains. Frameworks: COSO, NIST, ISO 27001.',
     metric: 'COSO · NIST · ISO',
   },
   {
-    title: 'ITGC Design & Implementation',
-    desc: 'IT General Controls spanning access, change management, and SDLC across Salesforce, SAP ERP, and 25+ systems.',
-    metric: '25+ systems',
+    title: 'ITGC & ITAC Design',
+    desc: 'IT General Controls and IT automated controls (ITACs) across access, change, operations, and SDLC — Salesforce, SAP ERP, and 25+ enterprise systems.',
+    metric: 'Enterprise scale',
   },
   {
-    title: 'Business Process Controls',
-    desc: 'Controls across revenue, order-to-cash, procure-to-pay, and financial close — including SOD, reconciliations, and automated application controls.',
-    metric: 'End-to-end',
+    title: 'Business Process Controls (BPC)',
+    desc: 'End-to-end business process controls across revenue, order-to-cash, procure-to-pay, and financial close — plus application controls in ERP: SOD, reconciliations, management review, and automated application controls.',
+    metric: 'BPC + ITAC',
   },
   {
-    title: 'Control Execution & Testing',
-    desc: 'Test plans, sampling, evidence standards, and operating effectiveness testing coordinated with internal and external auditors.',
-    metric: '22K+ users',
+    title: 'Testing & Audit Evidence',
+    desc: 'Test design, sampling, operating effectiveness, and audit-ready evidence — coordinated with internal audit and external auditors.',
+    metric: 'Audit-ready',
   },
   {
-    title: 'AI-Powered Automation',
-    desc: 'LLM-powered tools that automate control assessment, detect anomalies, and generate risk narratives — weeks to hours.',
-    metric: '70% reduced',
-  },
-  {
-    title: 'SOX Readiness & Audit Coordination',
-    desc: 'Partnering with external auditors to resolve deficiencies, close findings, and ensure seamless SOX readiness across all three lines of defense.',
-    metric: '3 lines of defense',
+    title: 'SOX Program & Remediation',
+    desc: 'Partnering with external auditors on IT SOX matters: deficiencies, remediation, reporting, and readiness — aligned with first- and second-line ownership and third-line assurance.',
+    metric: '1st · 2nd · 3rd LoD',
   },
 ]
 
@@ -61,13 +61,13 @@ export default function About() {
             </span>
             <h2
               ref={titleRef}
-              className={`font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-text transition-all duration-700 mb-8 ${
+              className={`font-display text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold leading-[1.12] tracking-tight text-text transition-all duration-700 mb-8 ${
                 titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              Controls expertise
+              Risk, compliance & AI
               <br />
-              meets AI innovation.
+              <span className="text-primary">Built for real operations.</span>
             </h2>
 
             {/* Certifications */}
@@ -93,44 +93,57 @@ export default function About() {
 
           {/* Right */}
           <div>
-            <p
+            <div
               ref={text1Ref}
-              className={`text-[17px] leading-[1.8] text-text-secondary mb-6 transition-all duration-700 ${
+              className={`transition-all duration-700 ${
                 text1Vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              With 14+ years across risk advisory and technology, my work spans the full
-              controls lifecycle: conducting{' '}
-              <strong className="text-text font-semibold">enterprise risk assessments</strong>,
-              designing <strong className="text-text font-semibold">ITGCs and business process
-              controls</strong>, leading{' '}
-              <strong className="text-text font-semibold">control execution and testing programs</strong>,
-              and coordinating with internal audit and external auditors to ensure SOX readiness
-              across complex multi-system environments.
-            </p>
-            <p
-              className={`text-[17px] leading-[1.8] text-text-secondary mb-4 transition-all duration-700 delay-100 ${
-                text1Vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              At PwC, I operate across all three lines of defense — strengthening
-              first-line control ownership, building second-line oversight and monitoring
-              programs, and partnering directly with external auditors to resolve control
-              deficiencies, close audit findings, and ensure seamless SOX readiness. I
-              direct multi-million dollar programs and work with C-suite leaders to embed
-              compliance into the fabric of their operations.
-            </p>
-            <p
-              className={`text-[17px] leading-[1.8] text-text-secondary mb-10 transition-all duration-700 delay-200 ${
-                text1Vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              I also leverage <strong className="text-text font-semibold">AI-powered
-              tooling</strong> within compliance engagements — using LLMs to detect
-              configuration anomalies, generate control narratives, assess risk postures,
-              and accelerate testing cycles. This combination of deep risk expertise and
-              applied AI is central to how I approach every engagement.
-            </p>
+              <p className="text-[17px] leading-[1.8] text-text-secondary mb-5">
+                <strong className="text-text font-semibold text-[17px]">
+                  14+ years across risk advisory, compliance, and technology — building programs
+                  that manage enterprise-level risk.
+                </strong>
+              </p>
+              <p className="text-[17px] leading-[1.8] text-text-secondary mb-8">
+                My work sits at the intersection of compliance, enterprise risk, and technology. I
+                design control frameworks that address risk holistically — SOX programs grounded in
+                enterprise risk management, structured to reflect how the business actually
+                operates, and built to give leadership clear visibility into exposure. End-to-end:
+                control framework design, ITGC and application controls, business process controls
+                across revenue and financial cycles, remediation, and auditor alignment — in
+                complex, multi-system environments across high-growth tech and regulated industries.
+              </p>
+
+              <p className="text-[17px] leading-[1.8] text-text-secondary mb-4">
+                <strong className="text-text font-semibold text-[17px]">
+                  At PwC, I work across all three lines of defense — with emphasis on control
+                  design, program design and delivery, and risk oversight.
+                </strong>
+              </p>
+              <p className="text-[17px] leading-[1.8] text-text-secondary mb-8">
+                I design business process controls with process owners, build second-line compliance
+                and risk infrastructure — monitoring, SOX scoping, ITGC and BPC coverage — and
+                partner with external auditors on deficiency assessment, remediation, and readiness.
+                I collaborate cross-functionally with technology, security, finance, and legal
+                leaders; lead multi-million-dollar programs; and report to C-suite and board-level
+                stakeholders.
+              </p>
+
+              <p className="text-[17px] leading-[1.8] text-text-secondary mb-4">
+                <strong className="text-text font-semibold text-[17px]">
+                  I build AI-powered compliance solutions.
+                </strong>
+              </p>
+              <p className="text-[17px] leading-[1.8] text-text-secondary mb-10">
+                I designed and deployed an end-to-end controls delivery platform that performs risk
+                assessments, builds business process control frameworks, generates RCMs and control
+                narratives, runs completeness-and-accuracy testing over system-generated reports and
+                key controls, and flags configuration anomalies — the same scope of work that
+                traditionally takes weeks, delivered in hours with broader coverage, tighter
+                consistency, and audit-ready evidence. It runs in production on live engagements.
+              </p>
+            </div>
 
             {/* Highlight cards — 2-column grid, staggered */}
             <div

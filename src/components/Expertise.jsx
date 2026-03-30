@@ -1,10 +1,13 @@
 import { useEffect, useRef } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
-const proficiencyLabel = (width) => {
-  if (width >= 95) return 'Expert'
-  if (width >= 90) return 'Advanced'
-  if (width >= 85) return 'Proficient'
+/** 1–5 relative emphasis (not a formal score). Maps to bar width for visual comparison only. */
+const EMPHASIS_MAX = 5
+
+const proficiencyLabel = (emphasis) => {
+  if (emphasis >= 5) return 'Expert'
+  if (emphasis >= 4) return 'Advanced'
+  if (emphasis >= 3) return 'Proficient'
   return 'Skilled'
 }
 
@@ -12,51 +15,52 @@ const skillCategories = [
   {
     heading: 'Risk & Compliance',
     skills: [
-      { name: 'SOX & ITGC Control Design', width: 97 },
-      { name: 'Risk Assessment & Mitigation', width: 95 },
-      { name: 'Governance (NIST, COSO, ISO 27001)', width: 92 },
-      { name: 'Audit Committee & Executive Reporting', width: 94 },
+      { name: 'SOX & ITGC Control Design', emphasis: 5 },
+      { name: 'Risk Assessment & Mitigation', emphasis: 5 },
+      { name: 'Governance (NIST, COSO, ISO 27001)', emphasis: 4 },
+      { name: 'Audit Committee & Executive Reporting', emphasis: 5 },
     ],
   },
   {
     heading: 'Platforms & Systems',
     skills: [
-      { name: 'Salesforce (Admin + BA Certified)', width: 95 },
-      { name: 'SAP ERP', width: 90 },
-      { name: 'Enterprise Security Architecture', width: 88 },
-      { name: 'Cross-System Control Linkages', width: 92 },
+      { name: 'Salesforce (Admin + BA Certified)', emphasis: 5 },
+      { name: 'SAP ERP', emphasis: 4 },
+      { name: 'Enterprise Security Architecture', emphasis: 4 },
+      { name: 'Cross-System Control Linkages', emphasis: 4 },
     ],
   },
   {
     heading: 'AI & Development',
     skills: [
-      { name: 'LLMs (OpenAI, Anthropic, Google)', width: 90 },
-      { name: 'Cursor AI / Agentic Development', width: 88 },
-      { name: 'AI-Driven Compliance Automation', width: 92 },
-      { name: 'Full-Stack Product Development', width: 85 },
+      { name: 'LLMs (OpenAI, Anthropic, Google)', emphasis: 4 },
+      { name: 'Cursor AI / Agentic Development', emphasis: 4 },
+      { name: 'AI-Driven Compliance Automation', emphasis: 5 },
+      { name: 'Full-Stack Product Development', emphasis: 4 },
     ],
   },
   {
     heading: 'Product Development',
     skills: [
-      { name: 'Product Requirements & Specifications', width: 97 },
-      { name: 'UAT & Acceptance Test Coordination', width: 97 },
-      { name: 'Stakeholder Workshops & Facilitation', width: 97 },
-      { name: 'Agile Delivery', width: 97 },
+      { name: 'Product Requirements & Specifications', emphasis: 5 },
+      { name: 'UAT & Acceptance Test Coordination', emphasis: 5 },
+      { name: 'Stakeholder Workshops & Facilitation', emphasis: 5 },
+      { name: 'Agile Delivery', emphasis: 5 },
     ],
   },
 ]
 
-function SkillBar({ name, width, delay }) {
+function SkillBar({ name, emphasis, delay }) {
   const barRef = useRef(null)
   const [ref, isVisible] = useScrollReveal({ threshold: 0.3 })
-  const label = proficiencyLabel(width)
+  const widthPct = (emphasis / EMPHASIS_MAX) * 100
+  const label = proficiencyLabel(emphasis)
 
   useEffect(() => {
     if (isVisible && barRef.current) {
-      barRef.current.style.width = `${width}%`
+      barRef.current.style.width = `${widthPct}%`
     }
-  }, [isVisible, width])
+  }, [isVisible, widthPct])
 
   return (
     <div ref={ref} className="flex flex-col gap-2">
@@ -97,7 +101,7 @@ function SkillCategory({ heading, skills, index }) {
       <h3 className="font-display text-lg font-semibold tracking-tight mb-6 text-text">{heading}</h3>
       <div className="flex flex-col gap-5">
         {skills.map((s, i) => (
-          <SkillBar key={s.name} name={s.name} width={s.width} delay={i * 150} />
+          <SkillBar key={s.name} name={s.name} emphasis={s.emphasis} delay={i * 150} />
         ))}
       </div>
     </div>
@@ -129,12 +133,20 @@ export default function Expertise() {
           proven results.
         </h2>
         <p
-          className={`text-lg text-text-secondary max-w-[600px] leading-relaxed mb-12 transition-all duration-700 delay-100 ${
+          className={`text-lg text-text-secondary max-w-[640px] leading-relaxed mb-3 transition-all duration-700 delay-100 ${
             titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           Four interconnected domains of mastery that reinforce each other to
           deliver stronger outcomes.
+        </p>
+        <p
+          className={`text-sm text-text-muted max-w-[640px] leading-relaxed mb-12 transition-all duration-700 delay-150 ${
+            titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          Bars show relative emphasis across my practice areas (1–5 scale) — useful for
+          comparing strengths, not a formal or industry-standard score.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">

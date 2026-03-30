@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { NavigationProvider, useNavigation } from './context/NavigationContext'
+import { NavigationProvider } from './context/NavigationContext'
+import { useNavigation } from './context/useNavigation'
 import { useScrollState } from './hooks/useScrollState'
 import ErrorBoundary from './components/ErrorBoundary'
 import Navbar from './components/Navbar'

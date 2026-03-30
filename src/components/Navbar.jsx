@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavScroll } from '../hooks/useNavScroll'
-import { useNavigation } from '../context/NavigationContext'
+import { useNavigation } from '../context/useNavigation'
 import { smoothScrollTo } from '../utils/smoothScroll'
 import Logo from './Logo'
 
@@ -19,10 +19,17 @@ export default function Navbar() {
   const { view, navigate } = useNavigation()
   const overlayRef = useRef(null)
 
-  // Restore scroll when component unmounts while menu is open
+  // Lock page scroll when mobile menu is open (single place — avoids ad-hoc DOM mutation)
   useEffect(() => {
-    return () => { document.body.style.overflow = '' }
-  }, [])
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
 
   // Focus trap + Escape key for mobile menu
   useEffect(() => {
@@ -36,7 +43,6 @@ export default function Navbar() {
     const handleKey = (e) => {
       if (e.key === 'Escape') {
         setMobileOpen(false)
-        document.body.style.overflow = ''
         return
       }
       if (e.key !== 'Tab') return
@@ -56,7 +62,6 @@ export default function Navbar() {
   const handleClick = (e, href, isPage = false) => {
     e.preventDefault()
     setMobileOpen(false)
-    document.body.style.overflow = ''
 
     if (isPage) {
       navigate(href)
@@ -74,9 +79,7 @@ export default function Navbar() {
   }
 
   const toggleMobile = () => {
-    const next = !mobileOpen
-    setMobileOpen(next)
-    document.body.style.overflow = next ? 'hidden' : ''
+    setMobileOpen((open) => !open)
   }
 
   const isLinkActive = (link) => {

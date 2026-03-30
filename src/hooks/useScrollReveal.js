@@ -67,33 +67,43 @@ export function useScrollReveal(options = {}) {
 // ── useCountUp ────────────────────────────────────────────────────
 export function useCountUp(target, duration = 2000, isActive = false) {
   const [count, setCount] = useState(0)
-  const wasActive = useRef(false)
+  const ranCycle = useRef(false)
 
   useEffect(() => {
     if (!isActive) {
-      wasActive.current = false
-      setCount(0)
+      ranCycle.current = false
       return
     }
 
-    // Already animating this activation — skip
-    if (wasActive.current) return
-    wasActive.current = true
+    if (ranCycle.current) return
+    ranCycle.current = true
 
-    let rafId
     const startTime = performance.now()
     const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4)
+    let rafId
+    let cancelled = false
 
     const animate = (currentTime) => {
+      if (cancelled) return
       const elapsed = currentTime - startTime
       const progress = Math.min(elapsed / duration, 1)
       setCount(Math.round(easeOutQuart(progress) * target))
       if (progress < 1) rafId = requestAnimationFrame(animate)
     }
 
-    rafId = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(rafId)
+    // Reset in RAF (not synchronously in the effect body) to satisfy react-hooks/set-state-in-effect
+    rafId = requestAnimationFrame(() => {
+      if (cancelled) return
+      setCount(0)
+      rafId = requestAnimationFrame(animate)
+    })
+
+    return () => {
+      cancelled = true
+      cancelAnimationFrame(rafId)
+      ranCycle.current = false
+    }
   }, [target, duration, isActive])
 
-  return count
+  return isActive ? count : 0
 }
