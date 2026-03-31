@@ -31,7 +31,8 @@ const jobs = [
     location: 'USA',
     role: 'Leader — Risk & Compliance',
     duration: '10+ years',
-    summary: 'Leading enterprise risk and compliance programs end-to-end across the full controls lifecycle — while building and shipping AI-powered tools that automate the manual effort that typically defines this work. Directing $5M+ engagements, reporting to executive leadership, and operating across all three lines of defense.',
+    summary:
+      'Architecting and leading enterprise-scale risk and compliance programs end-to-end across the full controls lifecycle — from design and implementation through monitoring, testing, and remediation. Simultaneously building and shipping AI-powered tools that eliminate the manual, repetitive effort that has historically defined this function, driving measurable efficiency gains across audit, risk, and compliance workflows. Directing $5M+ client engagements end-to-end — owning revenue delivery, resource allocation, and margin performance — while reporting directly to C-suite and executive leadership, and operating fluently across all three lines of defense.',
     bullets: [
       { text: 'Directed $5M+ enterprise risk and compliance engagements — scoping programs, leading multi-disciplinary teams, and reporting outcomes directly to C-suite and board-level stakeholders across technology, healthcare, and consumer industries.', impact: '$5M+ programs directed' },
       { text: 'Conducted enterprise risk assessments across financial reporting, technology, and operational domains — evaluating inherent risk, control effectiveness, and residual risk to define SOX scoping and prioritize audit focus areas for complex, multi-system environments.', impact: 'Risk assessment leadership' },
@@ -46,8 +47,8 @@ const jobs = [
     ],
     tags: ['Risk Assessment', 'ITGC', 'Business Process Controls', 'AI/LLMs', 'SOX', 'Control Testing', 'Salesforce', 'SAP ERP', 'Agile'],
     showLine: true,
-    /** Show this many bullets before “Show more” (skimmers get the headline wins). */
-    collapseAfter: 5,
+    /** 0 = summary only until expanded; then all bullets. */
+    collapseAfter: 0,
   },
   {
     date: 'March 2010 — August 2013',
@@ -64,6 +65,7 @@ const jobs = [
     ],
     tags: ['SAP', 'Requirements Gathering', 'Product Specifications', 'UAT', 'Functional Design', 'Change Management'],
     showLine: false,
+    collapseAfter: 0,
   },
 ]
 
@@ -90,10 +92,12 @@ function TimelineItem({ job, index }) {
   const [expanded, setExpanded] = useState(false)
   const cap = job.collapseAfter
   const bullets = job.bullets
-  const hasCollapse = typeof cap === 'number' && bullets.length > cap
+  /** collapseAfter 0 = hide all bullets until expand; N>0 = show first N until expand. */
+  const hasCollapse =
+    typeof cap === 'number' && bullets.length > 0 && (cap === 0 || bullets.length > cap)
   const shownBullets =
     hasCollapse && !expanded ? bullets.slice(0, cap) : bullets
-  const moreCount = hasCollapse ? bullets.length - cap : 0
+  const hiddenCount = hasCollapse ? bullets.length - (expanded ? bullets.length : cap) : 0
 
   return (
     <div
@@ -142,7 +146,11 @@ function TimelineItem({ job, index }) {
               onClick={() => setExpanded((e) => !e)}
               className="text-sm font-semibold text-primary hover:text-primary-dark underline-offset-2 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded"
             >
-              {expanded ? 'Show fewer highlights' : `Show ${moreCount} more highlights`}
+              {expanded
+              ? 'Show fewer highlights'
+              : cap === 0
+                ? `Show ${bullets.length} highlights`
+                : `Show ${hiddenCount} more highlights`}
             </button>
           </div>
         )}
