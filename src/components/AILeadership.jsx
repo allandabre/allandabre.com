@@ -130,10 +130,11 @@ export default function AILeadership() {
           className={`transition-all duration-700 ${introVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <p className="text-lg text-text-secondary max-w-[700px] leading-relaxed mb-4">
-            These are AI-powered tools used directly in client engagements — not demos. Each one automates
-            a compliance workflow that previously required weeks of manual effort: assessing controls,
-            identifying gaps, generating narratives, monitoring risk posture. Used across risk and
-            compliance engagements to deliver faster, more accurate outcomes for clients.
+            Every tool here is <strong className="text-text font-semibold">live in production</strong>.
+            Not a demo. Not a proof of concept. These run on real client engagements — replacing weeks of
+            manual compliance work with structured, audit-ready output. Each one automates a workflow
+            that used to consume teams for weeks: assessing controls, identifying gaps, generating
+            narratives, monitoring risk posture.
           </p>
           <p className="text-lg text-text-secondary max-w-[700px] leading-relaxed mb-10">
             I also co-led a strategic AI initiative at PwC — driving business development,

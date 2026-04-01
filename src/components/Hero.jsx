@@ -105,21 +105,26 @@ export default function Hero() {
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p
+            {/* Hook + closing line — full story lives in About */}
+            <div
               ref={ref3}
-              className={`text-base md:text-lg leading-relaxed text-white/55 max-w-[540px] mb-8 transition-all duration-700 delay-300 ${
+              className={`max-w-[580px] mb-8 transition-all duration-700 delay-300 ${
                 vis3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              I turn risk into resilience. From enterprise risk assessments to
-              IT general controls and business process control design, I build the
-              control frameworks that keep organizations compliant with SOX, GDPR,
-              HIPAA, and PCI DSS. I also leverage AI — using large language models
-              to automate control assessments, detect anomalies, and generate
-              structured compliance insights that cut weeks of manual work down
-              to hours.
-            </p>
+              <p className="text-base md:text-[17px] leading-relaxed text-white/60 mb-5">
+                I own enterprise compliance and risk programs end-to-end: design control frameworks,
+                build the automation that enforces them, and deploy AI that continuously monitors
+                cloud environments — turning SoD violations, configuration drift, and code-level
+                findings into quantified risk that leadership can act on.
+              </p>
+              <p className="text-lg md:text-xl leading-snug text-white/80">
+                <span className="font-display font-semibold text-white">
+                  Compliance is being reinvented.
+                </span>{' '}
+                <span className="text-primary font-semibold">I am one of the people doing it.</span>
+              </p>
+            </div>
 
             {/* CTA Buttons */}
             <div

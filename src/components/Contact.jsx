@@ -55,8 +55,8 @@ export default function Contact() {
               Let's connect.
             </h2>
             <p className="text-base leading-[1.7] text-text-secondary mb-4">
-              Whether it's a complex SOX transformation, AI-driven compliance
-              solutions, or a leadership conversation -- I'd love to hear from you.
+              Whether you are modernizing a SOX program, exploring AI in compliance, or looking for
+              your next leader — let&apos;s talk.
             </p>
             <p className="text-sm text-text-muted mb-8">
               Based in New York. Open to global opportunities.

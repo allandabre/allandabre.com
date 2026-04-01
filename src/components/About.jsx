@@ -99,49 +99,25 @@ export default function About() {
                 text1Vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <p className="text-[17px] leading-[1.8] text-text-secondary mb-5">
-                <strong className="text-text font-semibold text-[17px]">
-                  14+ years across risk advisory, compliance, and technology — building programs
-                  that manage enterprise-level risk.
-                </strong>
+              <p className="text-[17px] leading-[1.8] text-text-secondary mb-8">
+                I am building AI-powered tools that are redefining how enterprise compliance
+                operates, turning weeks of manual effort into minutes and shipping real products
+                that fundamentally change how organizations manage technology risk.
               </p>
               <p className="text-[17px] leading-[1.8] text-text-secondary mb-8">
-                My work sits at the intersection of compliance, enterprise risk, and technology. I
-                design control frameworks that address risk holistically — SOX programs grounded in
-                enterprise risk management, structured to reflect how the business actually
-                operates, and built to give leadership clear visibility into exposure. End-to-end:
-                control framework design, ITGC and application controls, business process controls
-                across revenue and financial cycles, remediation, and auditor alignment — in
-                complex, multi-system environments across high-growth tech and regulated industries.
-              </p>
-
-              <p className="text-[17px] leading-[1.8] text-text-secondary mb-4">
-                <strong className="text-text font-semibold text-[17px]">
-                  At PwC, I work across all three lines of defense — with emphasis on control
-                  design, program design and delivery, and risk oversight.
-                </strong>
-              </p>
-              <p className="text-[17px] leading-[1.8] text-text-secondary mb-8">
-                I design business process controls with process owners, build second-line compliance
-                and risk infrastructure — monitoring, SOX scoping, ITGC and BPC coverage — and
-                partner with external auditors on deficiency assessment, remediation, and readiness.
-                I collaborate cross-functionally with technology, security, finance, and legal
-                leaders; lead multi-million-dollar programs; and report to C-suite and board-level
-                stakeholders.
-              </p>
-
-              <p className="text-[17px] leading-[1.8] text-text-secondary mb-4">
-                <strong className="text-text font-semibold text-[17px]">
-                  I build AI-powered compliance solutions.
-                </strong>
+                At PwC, I architect and lead large-scale SOX IT compliance programs across SAP,
+                Salesforce, Oracle, and complex multi-system environments, designing and building
+                control frameworks end-to-end. I have built and led all of it at scale: ITGCs,
+                application controls, segregation of duties, access governance, change management, and
+                analytics-driven monitoring.
               </p>
               <p className="text-[17px] leading-[1.8] text-text-secondary mb-10">
-                I designed and deployed an end-to-end controls delivery platform that performs risk
-                assessments, builds business process control frameworks, generates RCMs and control
-                narratives, runs completeness-and-accuracy testing over system-generated reports and
-                key controls, and flags configuration anomalies — the same scope of work that
-                traditionally takes weeks, delivered in hours with broader coverage, tighter
-                consistency, and audit-ready evidence. It runs in production on live engagements.
+                I own multimillion-dollar engagements with full accountability for resource strategy,
+                budget performance, margin delivery, and end-to-end project execution. I operate
+                across all three lines of defense, partnering with management and process owners on
+                control design and implementation, supporting risk and compliance functions on
+                oversight and monitoring, and aligning with internal and external audit on assurance
+                and reporting.
               </p>
             </div>
 

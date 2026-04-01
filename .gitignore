@@ -1,14 +1,33 @@
-# Sensitive / personal files
+# =============================================================================
+# .gitignore — Portfolio site (allandabre.com)
+# =============================================================================
+# Dependencies, build output, secrets, IDE/OS noise. Keep repo deploy-safe.
+# =============================================================================
+
+# Secrets & environment — never commit
+.env
+.env.*
+!.env.example
+
+# Dependencies & build
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.tsbuildinfo
+
+# Local / machine-only overrides
+*.local
+
+# Sensitive or generated assets (keep out of Git if policy requires)
 *.pdf
 
-# AI tool config
+# AI tooling
 .claude/
-
-# Windows reserved device name (equivalent to /dev/null)
-nul
+.cursor/
 
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -16,20 +35,23 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Vercel CLI local project link
+.vercel/
 
-# Editor directories and files
+# Windows reserved / junk
+nul
+_ul
+Thumbs.db
+
+# macOS
+.DS_Store
+
+# Editors / IDEs
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-.vercel

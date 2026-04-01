@@ -113,8 +113,8 @@ export default function Education() {
             titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          Two world-class engineering programs, two continents, and a commitment
-          to continuous growth that extends well beyond the classroom.
+          Graduate and undergraduate engineering foundations — University of Maryland and University
+          of Mumbai — underpinning risk advisory, compliance, and AI product work.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">

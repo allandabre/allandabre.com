@@ -129,16 +129,15 @@ export default function Expertise() {
             titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          Deep expertise,<br />
-          proven results.
+          Four domains,<br />
+          one integrated practice.
         </h2>
         <p
           className={`text-lg text-text-secondary max-w-[640px] leading-relaxed mb-3 transition-all duration-700 delay-100 ${
             titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          Four interconnected domains of mastery that reinforce each other to
-          deliver stronger outcomes.
+          Risk, platforms, AI, and delivery — interconnected capabilities, not a laundry list of skills.
         </p>
         <p
           className={`text-sm text-text-muted max-w-[640px] leading-relaxed mb-12 transition-all duration-700 delay-150 ${
