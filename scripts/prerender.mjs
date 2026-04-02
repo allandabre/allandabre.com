@@ -30,7 +30,7 @@ const ROUTES = [
   {
     path: '/blog/shiny-hunters-salesforce-security',
     title: 'The Simplest Attack. The Biggest Blind Spot. — Allan Dabre',
-    description: 'Identity. Access. Configuration. Controls. The Salesforce attack surface most teams miss — and what to do about it.',
+    description: 'Why the breach is usually identity, access, and configuration — not the platform. What recent Salesforce attacks reveal and what to do about it.',
     ogImage: `${BASE_URL}/api/og?slug=shiny-hunters-salesforce-security`,
     ogUrl: `${BASE_URL}/blog/shiny-hunters-salesforce-security`,
   },
