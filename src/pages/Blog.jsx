@@ -8,7 +8,7 @@
  *
  * RESPONSIBILITIES:
  * - Map pathname to slug; render Shiny Hunters post or 404-style empty state
- * - Blog index: navigation back to portfolio, latest article card, LinkedIn CTA
+ * - Blog index: navigation back to portfolio, title, latest article card, LinkedIn CTA
  *
  * DEPENDENCIES:
  * - Used by: App routing
@@ -20,11 +20,6 @@ import { useEffect, useState } from 'react'
 import { useNavigation } from '../context/useNavigation'
 import ShinyHuntersSalesforce from './blog/ShinyHuntersSalesforce'
 import { shinyHuntersPostMeta, SHINY_HUNTERS_POST_SLUG } from './blog/shinyHuntersPostMeta'
-
-const topics = [
-  'AI in Compliance', 'LLM Architecture', 'SOX Automation',
-  'Enterprise Risk', 'ITGC & Controls', 'Agentic AI',
-]
 
 function getSlugFromPathname(pathname) {
   const p = pathname.replace(/\/$/, '') || '/'
@@ -45,31 +40,12 @@ function BlogLanding({ loaded, navigate }) {
           <div className="w-8 h-px bg-primary" />
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">Insights</span>
         </div>
-        <h1 className="font-display text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3">
+        <h1 className="font-display text-2xl sm:text-3xl font-semibold text-white tracking-tight">
           Blog
         </h1>
-        <p className="text-sm sm:text-base text-white/45 leading-relaxed max-w-xl">
-          Practical notes on AI in compliance, Salesforce security, enterprise risk, and where SOX,
-          ITGC, and generative AI meet.
-        </p>
       </header>
 
-      <div
-        className={`flex flex-wrap gap-2 mb-10 transition-all duration-500 delay-150 ${
-          loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-        }`}
-      >
-        {topics.map((t) => (
-          <span
-            key={t}
-            className="px-3 py-1 border border-white/10 rounded-full text-[11px] font-medium text-white/35"
-          >
-            {t}
-          </span>
-        ))}
-      </div>
-
-      <div className="border-t border-white/10 pt-8">
+      <div className="border-t border-white/10 pt-8 mt-8">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">Latest</h2>
         <button
           type="button"

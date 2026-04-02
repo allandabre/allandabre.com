@@ -1,11 +1,11 @@
 /**
  * =============================================================================
- * ShinyHuntersSalesforce.jsx — Blog article (Salesforce security & ShinyHunters-style risk)
+ * ShinyHuntersSalesforce.jsx: Blog article (Salesforce security & social-engineering risk)
  * =============================================================================
  *
  * PURPOSE:
  *   Long-form article on vishing, OAuth abuse, Salesforce as blind spot, and
- *   remediation sequence — with attack path, defense layers, and roadmap graphics.
+ *   remediation, attack path, defense layers, and roadmap graphics.
  *
  * RESPONSIBILITIES:
  *   - Render article typography consistent with site dark theme (Blog)
@@ -78,30 +78,33 @@ export default function ShinyHuntersSalesforce({ onBack }) {
 
       <div className="space-y-0">
         <P>
-          Groups like ShinyHunters are not breaking into Salesforce. They are walking in through
-          doors that were never closed. The platform is not compromised — the client environment is.
-          And in every case that has been publicly reported, the root cause is the same: basic
-          controls that were either missing or never applied to Salesforce in the first place.
+          Hacker groups like Shiny Hunters are not breaking into Salesforce. They walk through doors
+          that were never closed. The platform is not compromised; the client environment is.
         </P>
         <P>
-          Consider LVMH — the parent company of Louis Vuitton, Dior, and Tiffany. Attackers called
-          employees, impersonated IT support, and talked them into authorizing a malicious OAuth app
-          disguised as Salesforce Data Loader. No connected app approval policy existed. Anyone could
-          authorize. Multiple billion-dollar brands breached through the same door because the same
-          basic control was missing.
+          A recent FBI FLASH identified two clusters, UNC6040 and UNC6395, targeting Salesforce
+          tenants through help-desk vishing, malicious connected apps, and OAuth or API paths to bulk
+          data, in service of theft and extortion. Public reporting on the same campaign wave has
+          named firms across technology, travel, retail, and luxury.
         </P>
 
-        <SectionTitle>How ShinyHunters actually operates</SectionTitle>
+        <SectionTitle>How hacker groups actually operate</SectionTitle>
         <P>
-          The playbook is remarkably simple. An attacker calls an employee, impersonates IT support,
-          and creates urgency. The employee is directed to a convincing lookalike login page.
-          Credentials are captured in real time. Within minutes, the attacker holds a valid session.
+          The playbook is simple. Someone calls an employee, impersonates IT, creates urgency, and
+          directs the person to a fake login page. Credentials are captured in real time. Within
+          minutes, the attacker holds a valid session.
         </P>
         <P>
-          From there, it is not about hacking. It is about access. The attacker moves through the
-          environment using the permissions that identity already has — exporting data, accessing
-          integrations, searching code and logs for high-leverage material. The goal is extortion,
-          and the leverage comes from what was left exposed.
+          From that point forward, this is not hacking in the Hollywood sense; it is access. The
+          attacker moves through the environment using that identity&apos;s existing permissions,
+          exporting data and searching code for high-leverage material. The goal is extortion.
+        </P>
+        <P>
+          Consider LVMH, the luxury group whose brands include Louis Vuitton, Dior, Tiffany, and
+          others. Attackers called employees and talked them into authorizing a malicious OAuth app
+          disguised as Salesforce Data Loader. No connected app approval policy existed, so anyone
+          could authorize. Several billion-dollar brands were breached through the same gap because
+          one basic control was missing.
         </P>
         <P>
           No zero-day. No platform vulnerability. Just a phone call and an environment that was not
@@ -112,68 +115,60 @@ export default function ShinyHuntersSalesforce({ onBack }) {
 
         <SectionTitle>Why Salesforce is the blind spot</SectionTitle>
         <P>
-          If a system manages sensitive customer data, supports financial processes, and integrates
-          with critical enterprise platforms, it is typically governed with clearly defined controls
-          and accountability. For many organizations, Salesforce sits at the center of that
-          landscape.
+          When a system holds sensitive customer data, underpins financial processes, and connects to
+          other critical platforms, we usually surround it with clear controls and clear ownership.
+          For many organizations, Salesforce sits at the center of that landscape.
         </P>
         <P>
-          In practice, the same level of risk and control focus is often lacking compared to other
-          core systems. Over time, the security posture evolves in ways that are not always fully
-          understood — access models expand, connected apps and third-party integrations
-          accumulate, and sensitive data or credentials can exist in code and logs without clear
-          visibility.
+          In practice, the same rigor often does not follow Salesforce the way it follows other core
+          systems. Over time, the posture drifts in ways leadership may not fully see: access models
+          widen, connected apps and integrations pile up, and sensitive data or credentials can
+          linger in code and logs without a single owner asking hard questions.
         </P>
         <P>
-          Where these elements are not aligned, exposure builds over time — often without being
-          immediately visible.
+          When those risks go unexamined, exposure accrues quietly. It does not always announce
+          itself.
         </P>
 
         <DefenseLayersGraphic />
 
-        <SectionTitle>What to do about it — and where I can help</SectionTitle>
-        <P>
-          This does not require a large-scale program. It requires the right sequence, aligned to
-          your capacity.
-        </P>
+        <SectionTitle>What to do about it, and where I can help</SectionTitle>
         <P>
           It starts with a{' '}
-          <strong className="font-semibold text-primary">Security Assessment</strong>
-          {' '}
-          — a clear view of the current state — and builds from there.
+          <strong className="font-semibold text-primary">Security Assessment</strong>{' '}
+          (a clear view of the current state) and builds from there. None of this has to be a
+          multi-year transformation on day one. What it needs is a sequence that fits your
+          capacity. Teams can work on several pieces at once, not only one box at a time.
         </P>
         <P>
-          Most teams do not need everything at once. They need the right things done well.
-        </P>
-        <P>
-          The assessment establishes where to focus — bringing access, integrations, and code into
-          scope from the outset, including AI-assisted scanning to surface risks across metadata and
-          logic.
+          Most teams do not need everything at once; they need the right things done well. The
+          assessment cuts straight to what matters: access, integrations, and code, with AI-assisted
+          scanning to surface risk across metadata and logic from the outset.
         </P>
         <LeadIn>From there:</LeadIn>
         <BulletList>
           <li>
-            <span className="text-white/88 font-medium">Entitlement remediation</span> addresses the
-            most immediate gaps.
+            <span className="text-white/88 font-medium">Entitlement remediation</span> closes the
+            most urgent gaps.
           </li>
           <li>
             <span className="text-white/88 font-medium">IT General & Application Controls</span>{' '}
-            establish consistency and discipline.
+            bring consistency and discipline.
           </li>
           <li>
-            Structural changes — such as RBAC redesign and broader security posture — follow as
-            needed.
+            <span className="text-white/88 font-medium">Structural work</span>, such as RBAC
+            redesign and a clearer security posture, follows when the time is right.
           </li>
         </BulletList>
         <P>
-          The heavier lift is there when it makes sense, not as a day-one requirement.
+          The heavier lift shows up when it makes sense, not as a requirement on day one.
         </P>
 
         <SecurityRoadmapGraphic />
 
         <P>
-          If that sounds like a conversation worth having, it starts with a short call to scope what
-          makes sense for your environment.
+          That roadmap is the same sequence in one view. If you want to explore how that sequence
+          fits your environment, it starts with a short call to see what would serve you.
         </P>
       </div>
     </article>

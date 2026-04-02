@@ -22,7 +22,7 @@ export const SHINY_HUNTERS_POST_SLUG = 'shiny-hunters-salesforce-security'
 export const shinyHuntersPostMeta = {
   slug: SHINY_HUNTERS_POST_SLUG,
   title: 'The Simplest Attack. The Biggest Blind Spot.',
-  subtitle: 'Why the breach is usually identity and configuration — not the platform.',
+  subtitle: 'Why the breach is usually identity and configuration, not the platform.',
   date: 'March 2026',
   readTime: '8 min read',
 }
