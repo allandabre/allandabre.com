@@ -7,7 +7,7 @@ const degrees = [
     school: 'University of Maryland College Park',
     location: 'College Park, MD',
     year: 'May 2015',
-    desc: 'Graduate study in information management, enterprise systems, and technology strategy -- the analytical framework that drives both risk advisory and AI product development.',
+    desc: 'Graduate study in information management, enterprise systems, and technology strategy — the analytical framework that drives both risk advisory and AI product development.',
     highlights: ['Enterprise Systems', 'Technology Strategy', 'Data Analytics', 'Information Architecture'],
   },
   {
@@ -16,7 +16,7 @@ const degrees = [
     school: 'University of Mumbai',
     location: 'Mumbai, India',
     year: 'June 2010',
-    desc: 'Rigorous technical foundation in systems architecture, algorithms, and software engineering -- the bedrock of a career spanning technical consulting, enterprise risk, and AI innovation.',
+    desc: 'Rigorous technical foundation in systems architecture, algorithms, and software engineering — the bedrock of a career spanning technical consulting, enterprise risk, and AI innovation.',
     highlights: ['Systems Architecture', 'Software Engineering', 'Algorithm Design', 'Computer Networks'],
   },
 ]
@@ -24,19 +24,19 @@ const degrees = [
 const leadership = [
   {
     title: 'Strategic AI Initiative Lead',
-    org: 'PwC',
-    text: 'Co-led a firm-wide initiative to drive AI-powered business development -- designing proofs of concept, developing practice growth strategies, and expanding AI-enhanced service offerings to new markets.',
+    org: '',
+    text: 'Co-led a firm-wide initiative to drive AI-powered business development — designing proofs of concept, developing practice growth strategies, and expanding AI-enhanced service offerings to new markets.',
     impact: 'New service offerings launched',
   },
   {
     title: 'Talent Acquisition Strategist',
-    org: 'PwC',
+    org: '',
     text: 'Oversaw screening interviews as part of talent acquisition strategy, evaluating and identifying high-potential candidates who went on to become top performers in the firm\'s risk and consulting practices.',
     impact: 'Senior hiring pipeline',
   },
   {
     title: 'Campus Recruitment Lead',
-    org: 'PwC — New York & Boston',
+    org: 'New York & Boston',
     text: 'Led university recruitment campaigns across premier institutions in New York and Boston, building lasting partnerships and securing top-tier talent for competitive intern and analyst programs.',
     impact: 'Multi-city campus presence',
   },

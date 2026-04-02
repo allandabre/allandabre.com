@@ -100,13 +100,13 @@ export default function About() {
               }`}
             >
               <p className="text-[17px] leading-[1.8] text-text-secondary mb-8">
-                I am building AI-powered tools that are redefining how enterprise compliance
+                I build AI-powered tools that redefine how enterprise compliance
                 operates, turning weeks of manual effort into minutes and shipping real products
                 that fundamentally change how organizations manage technology risk.
               </p>
               <p className="text-[17px] leading-[1.8] text-text-secondary mb-8">
-                At PwC, I architect and lead large-scale SOX IT compliance programs across SAP,
-                Salesforce, Oracle, and complex multi-system environments, designing and building
+                I architect and lead large-scale SOX IT compliance programs across SAP,
+                Salesforce, Oracle, and other complex multi-system environments, designing and building
                 control frameworks end-to-end. I have built and led all of it at scale: ITGCs,
                 application controls, segregation of duties, access governance, change management, and
                 analytics-driven monitoring.

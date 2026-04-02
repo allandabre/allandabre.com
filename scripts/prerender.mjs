@@ -23,14 +23,14 @@ const ROUTES = [
   {
     path: '/blog',
     title: 'Blog — Allan Dabre',
-    description: 'Insights on enterprise risk, AI, and security from Allan Dabre — Senior Manager at PwC.',
+    description: 'Insights on enterprise risk, AI, and security from Allan Dabre.',
     ogImage: `${BASE_URL}/api/og`,
     ogUrl: `${BASE_URL}/blog`,
   },
   {
     path: '/blog/shiny-hunters-salesforce-security',
     title: 'The Simplest Attack. The Biggest Blind Spot. — Allan Dabre',
-    description: 'What recent Salesforce breaches reveal about identity, access, and configuration risk — and what good controls actually look like.',
+    description: 'Identity. Access. Configuration. Controls. The Salesforce attack surface most teams miss — and what to do about it.',
     ogImage: `${BASE_URL}/api/og?slug=shiny-hunters-salesforce-security`,
     ogUrl: `${BASE_URL}/blog/shiny-hunters-salesforce-security`,
   },

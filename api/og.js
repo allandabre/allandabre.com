@@ -4,7 +4,7 @@ const POSTS = {
   'shiny-hunters-salesforce-security': {
     label: 'INSIGHTS',
     title: 'The Simplest Attack.\nThe Biggest Blind Spot.',
-    subtitle: 'What recent Salesforce breaches reveal about identity, access, and configuration risk.',
+    subtitle: 'Identity. Access. Configuration. Controls. The Salesforce attack surface most teams miss.',
     meta: 'March 2026  ·  8 min read',
   },
 }

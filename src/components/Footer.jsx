@@ -43,7 +43,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-white/40 mb-4">
-              Leader, PwC · Risk & Compliance · AI Innovation
+              Risk & Compliance · AI Innovation
             </p>
             <div className="flex items-center gap-3">
               <a

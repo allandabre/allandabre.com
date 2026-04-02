@@ -137,7 +137,7 @@ export default function AILeadership() {
             narratives, monitoring risk posture.
           </p>
           <p className="text-lg text-text-secondary max-w-[700px] leading-relaxed mb-10">
-            I also co-led a strategic AI initiative at PwC — driving business development,
+            I also co-led a strategic AI initiative — driving business development,
             designing proofs of concept, and expanding our service model into AI-enhanced
             risk and compliance engagements.
           </p>

@@ -198,7 +198,7 @@ export default function AttackPathGraphic() {
           <div key={stage.header}>
             <div className="rounded-xl border border-white/10 overflow-hidden bg-black/15">
               <div className={`px-3 py-2 text-center text-[10px] font-bold uppercase tracking-wide ${stage.headerClass}`}>
-                {i < 2 ? stage.header : i === 2 ? 'Cloud, phase A' : 'Cloud, phase B'}
+                {stage.header}
               </div>
               <div className="flex flex-col items-center px-4 py-5">
                 <stage.Icon />

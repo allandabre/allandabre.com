@@ -84,8 +84,8 @@ export default function ShinyHuntersSalesforce({ onBack }) {
         <P>
           A recent FBI FLASH identified two clusters, UNC6040 and UNC6395, targeting Salesforce
           tenants through help-desk vishing, malicious connected apps, and OAuth or API paths to bulk
-          data, in service of theft and extortion. Public reporting on the same campaign wave has
-          named firms across technology, travel, retail, and luxury.
+          data, for theft and extortion. Public reporting has named firms across technology, travel,
+          retail, and luxury.
         </P>
 
         <SectionTitle>How hacker groups actually operate</SectionTitle>
@@ -95,13 +95,13 @@ export default function ShinyHuntersSalesforce({ onBack }) {
           minutes, the attacker holds a valid session.
         </P>
         <P>
-          From that point forward, this is not hacking in the Hollywood sense; it is access. The
+          From there, this is not hacking in the Hollywood sense; it is access. The
           attacker moves through the environment using that identity&apos;s existing permissions,
           exporting data and searching code for high-leverage material. The goal is extortion.
         </P>
         <P>
           Consider LVMH, the luxury group whose brands include Louis Vuitton, Dior, Tiffany, and
-          others. Attackers called employees and talked them into authorizing a malicious OAuth app
+          others. Attackers called employees and persuaded them to authorize a malicious OAuth app
           disguised as Salesforce Data Loader. No connected app approval policy existed, so anyone
           could authorize. Several billion-dollar brands were breached through the same gap because
           one basic control was missing.
@@ -120,7 +120,7 @@ export default function ShinyHuntersSalesforce({ onBack }) {
           For many organizations, Salesforce sits at the center of that landscape.
         </P>
         <P>
-          In practice, the same rigor often does not follow Salesforce the way it follows other core
+          In practice, that rigor rarely follows Salesforce the way it follows other core
           systems. Over time, the posture drifts in ways leadership may not fully see: access models
           widen, connected apps and integrations pile up, and sensitive data or credentials can
           linger in code and logs without a single owner asking hard questions.
@@ -137,13 +137,13 @@ export default function ShinyHuntersSalesforce({ onBack }) {
           It starts with a{' '}
           <strong className="font-semibold text-primary">Security Assessment</strong>{' '}
           (a clear view of the current state) and builds from there. None of this has to be a
-          multi-year transformation on day one. What it needs is a sequence that fits your
-          capacity. Teams can work on several pieces at once, not only one box at a time.
+          multi-year transformation. What it needs is a sequence that fits your
+          capacity. Teams can work on several pieces at once, not one box at a time.
         </P>
         <P>
           Most teams do not need everything at once; they need the right things done well. The
           assessment cuts straight to what matters: access, integrations, and code, with AI-assisted
-          scanning to surface risk across metadata and logic from the outset.
+          scanning to surface risk across metadata and logic.
         </P>
         <LeadIn>From there:</LeadIn>
         <BulletList>
@@ -167,8 +167,8 @@ export default function ShinyHuntersSalesforce({ onBack }) {
         <SecurityRoadmapGraphic />
 
         <P>
-          That roadmap is the same sequence in one view. If you want to explore how that sequence
-          fits your environment, it starts with a short call to see what would serve you.
+          That roadmap is the same sequence in one view. If you want to explore how that fits
+          your environment, start with a short call.
         </P>
       </div>
     </article>

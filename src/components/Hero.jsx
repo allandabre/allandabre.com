@@ -83,7 +83,7 @@ export default function Hero() {
                 vis1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              Risk & Compliance Leader at PwC · 14+ Years in Risk & AI
+              Risk & Compliance Leader · 14+ Years in Risk & AI
             </div>
 
             {/* Title */}

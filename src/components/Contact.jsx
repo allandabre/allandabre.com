@@ -55,7 +55,7 @@ export default function Contact() {
               Let's connect.
             </h2>
             <p className="text-base leading-[1.7] text-text-secondary mb-4">
-              Whether you are modernizing a SOX program, exploring AI in compliance, or looking for
+              Whether you are modernizing a SOX program, exploring AI in compliance, or seeking
               your next leader — let&apos;s talk.
             </p>
             <p className="text-sm text-text-muted mb-8">
