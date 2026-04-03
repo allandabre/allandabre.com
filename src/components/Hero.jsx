@@ -79,7 +79,7 @@ export default function Hero() {
             {/* Badge */}
             <div
               ref={ref1}
-              className={`inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/10 rounded-full text-xs font-medium text-primary mb-6 transition-all duration-700 ${
+              className={`inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/10 rounded-full text-xs font-semibold text-primary mb-6 transition-all duration-700 ${
                 vis1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >

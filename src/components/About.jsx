@@ -61,7 +61,7 @@ export default function About() {
             </span>
             <h2
               ref={titleRef}
-              className={`font-display text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold leading-[1.12] tracking-tight text-text transition-all duration-700 mb-8 ${
+              className={`font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-text transition-all duration-700 mb-8 ${
                 titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
@@ -99,21 +99,21 @@ export default function About() {
                 text1Vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <p className="text-[17px] leading-[1.8] text-text-secondary mb-8">
+              <p className="text-[17px] leading-[1.7] text-text-secondary mb-8">
                 I build AI-powered tools that redefine how enterprise compliance
                 operates, turning weeks of manual effort into minutes and shipping real products
                 that fundamentally change how organizations manage technology risk.
               </p>
-              <p className="text-[17px] leading-[1.8] text-text-secondary mb-8">
-                I architect and lead large-scale SOX IT compliance programs across SAP,
-                Salesforce, Oracle, and other complex multi-system environments, designing and building
-                control frameworks end-to-end. I have built and led all of it at scale: ITGCs,
+              <p className="text-[17px] leading-[1.7] text-text-secondary mb-8">
+                Architect and lead large-scale SOX IT compliance programs across SAP,
+                Salesforce, Oracle, and other complex multi-system environments — designing and building
+                control frameworks end-to-end. Built and led the full stack: ITGCs,
                 application controls, segregation of duties, access governance, change management, and
                 analytics-driven monitoring.
               </p>
-              <p className="text-[17px] leading-[1.8] text-text-secondary mb-10">
-                I own multimillion-dollar engagements with full accountability for resource strategy,
-                budget performance, margin delivery, and end-to-end project execution. I operate
+              <p className="text-[17px] leading-[1.7] text-text-secondary mb-10">
+                Deliver and own multimillion-dollar engagements with full accountability for resource strategy,
+                budget performance, margin delivery, and end-to-end project execution — operating
                 across all three lines of defense, partnering with management and process owners on
                 control design and implementation, supporting risk and compliance functions on
                 oversight and monitoring, and aligning with internal and external audit on assurance

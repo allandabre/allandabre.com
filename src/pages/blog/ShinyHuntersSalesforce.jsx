@@ -69,7 +69,7 @@ export default function ShinyHuntersSalesforce({ onBack }) {
         All insights
       </button>
 
-      <p className="text-xs font-medium uppercase tracking-[0.14em] text-primary/90 mb-4">{shinyHuntersPostMeta.date}</p>
+      <p className="text-xs font-semibold uppercase tracking-widest text-primary/90 mb-4">{shinyHuntersPostMeta.date}</p>
       <h1 className="font-display text-3xl md:text-[2.1rem] font-bold text-white/95 leading-snug mb-4">
         {shinyHuntersPostMeta.title}
       </h1>
@@ -90,14 +90,10 @@ export default function ShinyHuntersSalesforce({ onBack }) {
 
         <SectionTitle>How hacker groups actually operate</SectionTitle>
         <P>
-          The playbook is simple. Someone calls an employee, impersonates IT, creates urgency, and
-          directs the person to a fake login page. Credentials are captured in real time. Within
-          minutes, the attacker holds a valid session.
-        </P>
-        <P>
-          From there, this is not hacking in the Hollywood sense; it is access. The
-          attacker moves through the environment using that identity&apos;s existing permissions,
-          exporting data and searching code for high-leverage material. The goal is extortion.
+          The playbook is simple — a phone call, a fake login page, and within minutes the attacker
+          holds a valid session. From there, it is not sophisticated intrusion; it is access. They
+          move through the environment using that identity&apos;s existing permissions, exporting
+          data and searching code for high-leverage material. The goal is extortion.
         </P>
         <P>
           Consider LVMH, the luxury group whose brands include Louis Vuitton, Dior, Tiffany, and
