@@ -21,22 +21,22 @@ const LAYERS = [
   {
     title: 'Identity & Entitlements',
     detail:
-      'Roles, permission sets, and integration identities; OAuth and connected-app rules, including consent and approval paths. Least privilege aligned to how the business operates.',
+      'Every identity (user, integration, or app) has the access it needs and nothing more. Roles and permission sets reflect how the business actually operates. OAuth and connected-app consent paths are governed, not open by default.',
   },
   {
     title: 'IT General Controls',
     detail:
-      'Change management, privileged access, access request and approval, and review of security-relevant logs. Validated backup and restore for production environments.',
+      'Changes to production go through a review gate. Privileged access is controlled and monitored. Logs are reviewed on a schedule, not just stored and forgotten.',
   },
   {
     title: 'Lifecycle & Access Reviews',
     detail:
-      'Periodic access reviews; joiner, mover, and leaver handling; timely offboarding; segregation of duties and approvals where policy requires them.',
+      'Access stays current. Leavers are offboarded promptly, movers are re-evaluated, and periodic reviews confirm permissions still match roles. Segregation of duties is enforced where it matters.',
   },
   {
     title: 'Code & Observability',
     detail:
-      'Beyond configuration: Apex, metadata, and logs for secrets, PII, and integration risk; analysis across metadata and code.',
+      'The review goes beyond configuration. Apex, metadata, and logs are scanned for secrets, PII, and integration risk. What\'s running in the environment is understood, not just what\'s configured.',
   },
 ]
 
@@ -49,11 +49,10 @@ export default function DefenseLayersGraphic() {
       <div className="max-w-3xl mx-auto border-l border-white/18 pl-5 md:pl-6">
         <figcaption className="mb-6 text-center">
           <span className="block text-xs font-semibold uppercase tracking-[0.12em] text-primary/90 mb-2">
-            How the pieces fit
+            What a defensible environment looks like
           </span>
           <p className="text-sm text-white/55 leading-relaxed text-balance">
-            After authentication, residual risk depends on four complementary areas: access design,
-            operational discipline, lifecycle assurance, and technical visibility.
+            Four areas where posture is either strong or quietly drifting. Most environments have gaps in at least two.
           </p>
         </figcaption>
 

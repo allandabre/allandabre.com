@@ -67,13 +67,10 @@ export default function SecurityRoadmapGraphic() {
     >
       <figcaption className="mb-5 text-center">
         <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-primary/90">
-          A practical sequence
+          From exposure to control
         </span>
         <span className="block text-xs text-white/55 mt-2 text-center leading-snug max-w-xl mx-auto">
-          Security assessment is key: it shows what needs fixing.
-        </span>
-        <span className="block text-xs text-white/50 mt-2 text-center leading-snug max-w-xl mx-auto">
-          You don&apos;t have to go one box at a time. Teams can work on several steps together.
+          Assessment first. Structural work when you&apos;re ready. The sequence is designed to fit your capacity, not disrupt it.
         </span>
       </figcaption>
 

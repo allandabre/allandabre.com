@@ -90,7 +90,7 @@ export default function ShinyHuntersSalesforce({ onBack }) {
 
         <SectionTitle>How hacker groups actually operate</SectionTitle>
         <P>
-          The playbook is simple — a phone call, a fake login page, and within minutes the attacker
+          The playbook is simple: a phone call, a fake login page, and within minutes the attacker
           holds a valid session. From there, it is not sophisticated intrusion; it is access. They
           move through the environment using that identity&apos;s existing permissions, exporting
           data and searching code for high-leverage material. The goal is extortion.
@@ -126,45 +126,31 @@ export default function ShinyHuntersSalesforce({ onBack }) {
           itself.
         </P>
 
-        <DefenseLayersGraphic />
-
         <SectionTitle>What to do about it, and where I can help</SectionTitle>
         <P>
-          It starts with a{' '}
+          The good news: the gaps are fixable. The work is not glamorous, but it is well-understood
+          and most organizations are closer to a defensible posture than they think.
+        </P>
+
+        <DefenseLayersGraphic />
+
+        <P>
+          The starting point is a{' '}
           <strong className="font-semibold text-primary">Security Assessment</strong>{' '}
-          (a clear view of the current state) and builds from there. None of this has to be a
-          multi-year transformation. What it needs is a sequence that fits your
-          capacity. Teams can work on several pieces at once, not one box at a time.
+          scoping access, integrations, configuration, and code, with AI-assisted scanning to
+          surface risk across metadata and logic. It produces prioritized findings in weeks, not months.
         </P>
         <P>
-          Most teams do not need everything at once; they need the right things done well. The
-          assessment cuts straight to what matters: access, integrations, and code, with AI-assisted
-          scanning to surface risk across metadata and logic.
-        </P>
-        <LeadIn>From there:</LeadIn>
-        <BulletList>
-          <li>
-            <span className="text-white/88 font-medium">Entitlement remediation</span> closes the
-            most urgent gaps.
-          </li>
-          <li>
-            <span className="text-white/88 font-medium">IT General & Application Controls</span>{' '}
-            bring consistency and discipline.
-          </li>
-          <li>
-            <span className="text-white/88 font-medium">Structural work</span>, such as RBAC
-            redesign and a clearer security posture, follows when the time is right.
-          </li>
-        </BulletList>
-        <P>
-          The heavier lift shows up when it makes sense, not as a requirement on day one.
+          What follows is a sequence, not a transformation. Teams can move on several tracks at
+          once; the heavier structural work lands when the time is right.
         </P>
 
         <SecurityRoadmapGraphic />
 
         <P>
-          That roadmap is the same sequence in one view. If you want to explore how that fits
-          your environment, start with a short call.
+          Most teams know something is off. The assessment makes it specific. If you want to talk
+          through what that looks like for your environment,{' '}
+          <strong className="font-semibold text-primary">let&apos;s start there.</strong>
         </P>
       </div>
     </article>
