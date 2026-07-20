@@ -26,7 +26,7 @@ export default function Contact() {
     const message = formData.get('message')
 
     // Opens the user's real email client with pre-filled fields
-    const body = `From: ${name} (${senderEmail})\n\n${message}`
+    const body = `From: ${name} (${senderEmail.replace(/[\r\n]/g, '')})\n\n${message}`
     const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     openMailto(mailtoUrl)
 
@@ -39,7 +39,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-20 md:py-32 bg-surface-cool">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16">
           {/* Left */}
           <div
@@ -55,8 +55,8 @@ export default function Contact() {
               Let's connect.
             </h2>
             <p className="text-base leading-[1.7] text-text-secondary mb-4">
-              Whether you are modernizing a SOX program, exploring AI in compliance, or seeking
-              your next leader — let&apos;s talk.
+              Whether you are modernizing a SOX program, exploring AI in compliance, or considering
+              your next strategic hire.
             </p>
             <p className="text-sm text-text-muted mb-8">
               Based in New York. Open to global opportunities.

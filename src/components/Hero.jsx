@@ -3,10 +3,9 @@ import { useScrollReveal, useCountUp } from '../hooks/useScrollReveal'
 import { smoothScrollTo } from '../utils/smoothScroll'
 
 const roles = [
-  'Risk Assessment & Controls Design',
-  'ITGC & Business Process Controls',
-  'Control Execution & Testing',
-  'AI-Powered Compliance Automation',
+  'Published on CIO.com',
+  'Expert Source: BankInfoSecurity & Assured',
+  'AI Compliance Systems Architect, Live in Production',
 ]
 
 function RotatingText() {
@@ -70,9 +69,9 @@ export default function Hero() {
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8 w-full">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Two-column layout: Text left, Video right */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-14 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-14 mb-16">
 
           {/* Left — Intro text */}
           <div>
@@ -83,7 +82,7 @@ export default function Hero() {
                 vis1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              Risk & Compliance Leader · 14+ Years in Risk & AI
+              Contributing Author, CIO.com · AI Risk Leader
             </div>
 
             {/* Title */}
@@ -113,16 +112,11 @@ export default function Hero() {
               }`}
             >
               <p className="text-base md:text-[17px] leading-relaxed text-white/60 mb-5">
-                I own enterprise compliance and risk programs end-to-end: design control frameworks,
-                build the automation that enforces them, and deploy AI that continuously monitors
-                cloud environments — turning SoD violations, configuration drift, and code-level
-                findings into quantified risk that leadership can act on.
+                I design and lead enterprise risk and compliance programs at scale: building control frameworks, engineering the automation that enforces them, and deploying AI that continuously monitors complex environments, converting control gaps and access anomalies into quantified risk intelligence that executive leadership can act on.
               </p>
-              <p className="text-lg md:text-xl leading-snug text-white/80">
-                <span className="font-display font-semibold text-white">
-                  Compliance is being reinvented.
-                </span>{' '}
-                <span className="text-primary font-semibold">I am one of the people doing it.</span>
+              <p className="text-lg md:text-xl leading-snug">
+                <span className="font-display font-semibold text-white">Compliance is being reinvented.</span>{' '}
+                <span className="shimmer-text">At the center of how that happens.</span>
               </p>
             </div>
 
@@ -167,27 +161,29 @@ export default function Hero() {
           {/* Right — Photo */}
           <div
             ref={photoRef}
-            className={`flex justify-center lg:justify-end transition-all duration-700 delay-300 ${
+            className={`flex items-center justify-center lg:justify-center transition-all duration-700 delay-300 ${
               photoVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
           >
-            <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20 ring-4 ring-white/5 hover-card">
+            <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl shadow-black/30">
               <img
-                src="/allan%20dabre.jpg"
+                src="/Headshot_2_2026.png"
                 alt="Allan Dabre"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-[center_20%]"
               />
             </div>
           </div>
         </div>
 
         {/* Stats — full width below */}
-        <div className="flex items-center justify-center gap-8 md:gap-14 flex-wrap pt-8 border-t border-white/5">
+        <div className="grid grid-cols-2 md:flex md:items-center md:justify-center gap-6 md:gap-14 pt-8 border-t border-white/5">
+          <StatItem target={5} prefix="$" suffix="M+" label="Programs directed" />
+          <div className="hidden md:block w-px h-10 bg-white/10" />
           <StatItem target={22} suffix="K+" label="Users governed" />
-          <div className="hidden sm:block w-px h-10 bg-white/10" />
+          <div className="hidden md:block w-px h-10 bg-white/10" />
           <StatItem target={25} suffix="+" label="Enterprise systems assessed" />
-          <div className="hidden sm:block w-px h-10 bg-white/10" />
-          <StatItem target={70} suffix="%" label="Assessment effort reduced" />
+          <div className="hidden md:block w-px h-10 bg-white/10" />
+          <StatItem target={70} suffix="%" label="AI effort reduction" />
         </div>
       </div>
 

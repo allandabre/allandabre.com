@@ -7,7 +7,7 @@ const degrees = [
     school: 'University of Maryland College Park',
     location: 'College Park, MD',
     year: 'May 2015',
-    desc: 'Graduate study in information management, enterprise systems, and technology strategy — the analytical framework that drives both risk advisory and AI product development.',
+    desc: 'Graduate study in information management, enterprise systems, and technology strategy, forming the analytical foundation that underpins both risk advisory leadership and AI product development.',
     highlights: ['Enterprise Systems', 'Technology Strategy', 'Data Analytics', 'Information Architecture'],
   },
   {
@@ -16,29 +16,8 @@ const degrees = [
     school: 'University of Mumbai',
     location: 'Mumbai, India',
     year: 'June 2010',
-    desc: 'Rigorous technical foundation in systems architecture, algorithms, and software engineering — the bedrock of a career spanning technical consulting, enterprise risk, and AI innovation.',
+    desc: 'Rigorous technical foundation in systems architecture, algorithms, and software engineering, the bedrock of a career spanning technical consulting, enterprise risk leadership, and AI innovation.',
     highlights: ['Systems Architecture', 'Software Engineering', 'Algorithm Design', 'Computer Networks'],
-  },
-]
-
-const leadership = [
-  {
-    title: 'Strategic AI Initiative Lead',
-    org: '',
-    text: 'Co-led a firm-wide initiative to drive AI-powered business development — designing proofs of concept, developing practice growth strategies, and expanding AI-enhanced service offerings to new markets.',
-    impact: 'New service offerings launched',
-  },
-  {
-    title: 'Talent Acquisition Strategist',
-    org: '',
-    text: 'Oversaw screening interviews as part of talent acquisition strategy, evaluating and identifying high-potential candidates who went on to become top performers in the firm\'s risk and consulting practices.',
-    impact: 'Senior hiring pipeline',
-  },
-  {
-    title: 'Campus Recruitment Lead',
-    org: 'New York & Boston',
-    text: 'Led university recruitment campaigns across premier institutions in New York and Boston, building lasting partnerships and securing top-tier talent for competitive intern and analyst programs.',
-    impact: 'Multi-city campus presence',
   },
 ]
 
@@ -86,18 +65,17 @@ function EduCard({ degree, index }) {
 export default function Education() {
   const [labelRef, labelVis] = useScrollReveal()
   const [titleRef, titleVis] = useScrollReveal()
-  const [leadRef, leadVis] = useScrollReveal()
 
   return (
     <section id="education" className="py-20 md:py-32 bg-surface">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <span
           ref={labelRef}
           className={`block text-xs font-semibold uppercase tracking-widest text-primary mb-4 transition-all duration-700 ${
             labelVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          Education & Leadership
+          Education
         </span>
         <h2
           ref={titleRef}
@@ -113,44 +91,14 @@ export default function Education() {
             titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          Graduate and undergraduate engineering foundations — University of Maryland and University
-          of Mumbai — underpinning risk advisory, compliance, and AI product work.
+          Graduate and undergraduate engineering foundations from the University of Maryland and University
+          of Mumbai, underpinning risk advisory, compliance, and AI product work.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {degrees.map((d, i) => (
             <EduCard key={d.field} degree={d} index={i} />
           ))}
-        </div>
-
-        {/* Leadership — staggered items */}
-        <div
-          ref={leadRef}
-          className={`bg-white rounded-2xl border border-border-light hover:border-primary/30 hover-card p-6 md:p-8 transition-all duration-700 ${
-            leadVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <h3 className="font-display text-lg font-semibold tracking-tight text-text mb-6">
-            Firm-Wide Leadership & Initiatives
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {leadership.map((item, i) => (
-              <div
-                key={item.title}
-                className={`p-5 bg-surface-alt rounded-xl border border-border-light hover:border-primary/30 hover-lift transition-all duration-600 ${
-                  leadVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-                }`}
-                style={{ transitionDelay: leadVis ? `${200 + i * 100}ms` : '0ms' }}
-              >
-                <span className="block text-sm font-semibold text-text mb-1">{item.title}</span>
-                <span className="block text-[10px] text-text-muted uppercase tracking-wider mb-3">{item.org}</span>
-                <p className="text-sm text-text-secondary leading-relaxed mb-3">{item.text}</p>
-                <span className="inline-block text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary-light px-2 py-0.5 rounded-full">
-                  {item.impact}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

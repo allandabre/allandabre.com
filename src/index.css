@@ -144,6 +144,30 @@ body {
   transform: translateY(-1px) scale(1.03);
 }
 
+
+/* ── Shimmer sweep ─────────────────────────────────── */
+@keyframes shimmer-sweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.7) 0%,
+    rgba(255,255,255,0.7) 35%,
+    rgba(20,184,166,1) 48%,
+    rgba(255,255,255,1) 52%,
+    rgba(255,255,255,0.7) 65%,
+    rgba(255,255,255,0.7) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 4s linear infinite;
+}
+
 /* ── Accessibility: reduced motion ─────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

@@ -341,7 +341,7 @@ export default function SchrodingerSection() {
   }, [])
 
   return (
-    <section className="bg-dark-soft py-14 md:py-20 relative overflow-hidden border-y border-white/5">
+    <section id="schrodinger" className="bg-dark-soft py-14 md:py-20 relative overflow-hidden border-y border-white/5">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8">
@@ -370,10 +370,10 @@ export default function SchrodingerSection() {
               </h2>
               <p className="text-sm text-white/45 leading-relaxed max-w-[400px] mx-auto lg:mx-0">
                 When I'm embedded from the start of a transformation, the control framework
-                is built in parallel — not bolted on after. Risk is actively managed as
+                is built in parallel, not retrofitted after the fact. Risk is actively managed as
                 the program progresses, so that by the time you reach Go-Live, controls
                 are already in place, tested, and operating. You arrive at go-live in a
-                controlled state — not scrambling to catch up.
+                a controlled state rather than scrambling to catch up.
               </p>
             </div>
 
@@ -383,7 +383,7 @@ export default function SchrodingerSection() {
                 noteVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              I build the control architectures during transformation — so Go-Live
+              I build the control architectures during transformation so that Go-Live
               is a milestone, not a moment of exposure.
             </p>
           </div>

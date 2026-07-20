@@ -5,8 +5,8 @@ const products = [
     number: '01',
     status: 'Production',
     title: 'Compliance Intelligence Platform',
-    tagline: 'AI that reads your control environment so you don\'t have to.',
-    desc: 'Ingests enterprise system exports and runs them through a structured LLM evaluation pipeline — automatically surfacing control gaps, configuration issues, and access anomalies. What used to take teams weeks of manual review is distilled into structured, audit-ready output in hours.',
+    tagline: 'AI that reads your control environment so you do not have to.',
+    desc: 'Ingests enterprise system exports and executes them through a structured LLM evaluation pipeline, automatically surfacing control gaps, configuration issues, and access anomalies. What previously required weeks of manual team effort is distilled into structured, audit-ready output in hours.',
     results: [
       { metric: '70%', label: 'Manual effort eliminated' },
       { metric: 'Hours', label: 'Not weeks' },
@@ -18,8 +18,8 @@ const products = [
     number: '02',
     status: 'Active',
     title: 'Risk & Controls Accelerator',
-    tagline: 'From risk identification to full control framework, in hours.',
-    desc: 'An intelligent workflow engine that runs structured risk assessments, generates control frameworks across ITGC and business process domains, maps regulatory obligations to control activities, and identifies coverage gaps — replacing weeks of manual matrix development with guided AI output.',
+    tagline: 'From risk identification to full control framework in hours.',
+    desc: 'An intelligent workflow engine that executes structured risk assessments, generates control frameworks across ITGC and business process domains, maps regulatory obligations to control activities, and identifies coverage gaps, replacing weeks of manual matrix development with structured AI output.',
     results: [
       { metric: '10x', label: 'Faster generation' },
       { metric: 'End-to-end', label: 'Risk to control' },
@@ -105,7 +105,7 @@ export default function AILeadership() {
 
   return (
     <section id="ai-leadership" className="py-20 md:py-32 bg-surface-cool">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
         <span
           ref={labelRef}
@@ -113,7 +113,7 @@ export default function AILeadership() {
             labelVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          AI & Automation
+          Original Contributions
         </span>
         <h2
           ref={titleRef}
@@ -121,8 +121,8 @@ export default function AILeadership() {
             titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          AI I've embedded<br />
-          into compliance work.
+          Novel tools built<br />
+          <span className="text-primary">for a field being reinvented.</span>
         </h2>
 
         <div
@@ -130,16 +130,10 @@ export default function AILeadership() {
           className={`transition-all duration-700 ${introVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <p className="text-lg text-text-secondary max-w-[700px] leading-relaxed mb-4">
-            Every tool here is <strong className="text-text font-semibold">live in production</strong>.
-            Not a demo. Not a proof of concept. These run on real client engagements — replacing weeks of
-            manual compliance work with structured, audit-ready output. Each one automates a workflow
-            that used to consume teams for weeks: assessing controls, identifying gaps, generating
-            narratives, monitoring risk posture.
+            Every tool listed here is <strong className="text-text font-semibold">live in production</strong>: original solutions to problems the compliance industry had not yet addressed with AI. These run on real client engagements, replacing weeks of manual work with structured, audit-ready output.
           </p>
           <p className="text-lg text-text-secondary max-w-[700px] leading-relaxed mb-10">
-            I also co-led a strategic AI initiative — driving business development,
-            designing proofs of concept, and expanding our service model into AI-enhanced
-            risk and compliance engagements.
+            I led a firm-wide strategic AI initiative, driving business development, designing proofs of concept, and expanding the service model into AI-enhanced risk and compliance engagements across new markets.
           </p>
         </div>
 
@@ -166,7 +160,7 @@ export default function AILeadership() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
           {products.map((p, i) => (
             <AICard key={p.number} product={p} index={i} />
           ))}

@@ -8,6 +8,7 @@ const links = [
   { href: '#about', label: 'About' },
   { href: '#experience', label: 'Experience' },
   { href: '#ai-leadership', label: 'AI Leadership' },
+  { href: '#quote', label: 'Recognition' },
   { href: '#expertise', label: 'Expertise' },
   { href: '#education', label: 'Education' },
   { href: '#contact', label: 'Contact' },
@@ -43,7 +44,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-white/40 mb-4">
-              Risk & Compliance · AI Innovation
+              Published · Cited · AI Risk Leader
             </p>
             <div className="flex items-center gap-3">
               <a

@@ -8,8 +8,10 @@ const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#experience', label: 'Experience' },
   { href: '#ai-leadership', label: 'AI Leadership' },
+  { href: '#quote', label: 'Recognition' },
   { href: '#expertise', label: 'Expertise' },
   { href: '#education', label: 'Education' },
+  { href: '#contact', label: 'Contact' },
   { href: '/blog', label: 'Blog', isPage: true },
 ]
 
@@ -174,7 +176,7 @@ export default function Navbar() {
           ✕
         </button>
         <div className="flex flex-col items-center gap-6" onClick={(e) => e.stopPropagation()}>
-          {[...navLinks, { href: '#contact', label: 'Contact' }].map((link, i) => (
+          {navLinks.map((link, i) => (
             <a
               key={link.href}
               href={link.href}

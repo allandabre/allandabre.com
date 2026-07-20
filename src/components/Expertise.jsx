@@ -114,7 +114,7 @@ export default function Expertise() {
 
   return (
     <section id="expertise" className="py-20 md:py-32 bg-surface-warm">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <span
           ref={labelRef}
           className={`block text-xs font-semibold uppercase tracking-widest text-primary mb-4 transition-all duration-700 ${
@@ -137,14 +137,14 @@ export default function Expertise() {
             titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          Risk, platforms, AI, and delivery — interconnected capabilities, not a laundry list of skills.
+          Risk, platforms, AI, and delivery: interconnected capabilities, not a laundry list of skills.
         </p>
         <p
           className={`text-sm text-text-muted max-w-[640px] leading-relaxed mb-12 transition-all duration-700 delay-150 ${
             titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          Bars show relative emphasis across my practice areas (1–5 scale) — useful for
+          Bars show relative emphasis across practice areas on a 1 to 5 scale, useful for
           comparing strengths, not a formal or industry-standard score.
         </p>
 

@@ -8,6 +8,8 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Experience from './components/Experience'
 import AILeadership from './components/AILeadership'
+import Recognition from './components/Recognition'
+import QuoteInterstitial from './components/QuoteInterstitial'
 import Expertise from './components/Expertise'
 import Education from './components/Education'
 import Contact from './components/Contact'
@@ -62,10 +64,12 @@ function AppContent() {
         ) : (
           <>
             <Hero />
-            <SchrodingerSection />
             <About />
             <Experience />
+            <SchrodingerSection />
             <AILeadership />
+            <QuoteInterstitial />
+            <Recognition />
             <Expertise />
             <Education />
             <Contact />
