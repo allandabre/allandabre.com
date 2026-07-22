@@ -1,11 +1,8 @@
-/**
- * Shared smooth-scroll utility.
- * Offsets by 80px to account for the fixed navbar.
- */
 export function smoothScrollTo(href) {
   const el = document.querySelector(href)
   if (el) {
-    const top = el.getBoundingClientRect().top + window.scrollY - 80
+    const paddingTop = parseInt(getComputedStyle(el).paddingTop, 10) || 0
+    const top = el.getBoundingClientRect().top + window.scrollY - 80 + paddingTop
     window.scrollTo({ top, behavior: 'smooth' })
   }
 }
