@@ -18,8 +18,6 @@
  */
 import { useEffect, useState } from 'react'
 import { useNavigation } from '../context/useNavigation'
-import ShinyHuntersSalesforce from './blog/ShinyHuntersSalesforce'
-import { shinyHuntersPostMeta, SHINY_HUNTERS_POST_SLUG } from './blog/shinyHuntersPostMeta'
 
 function getSlugFromPathname(pathname) {
   const p = pathname.replace(/\/$/, '') || '/'
@@ -44,31 +42,6 @@ function BlogLanding({ loaded, navigate }) {
           Blog
         </h1>
       </header>
-
-      <div className="border-t border-white/10 pt-8 mt-8">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">Latest</h2>
-        <button
-          type="button"
-          onClick={() => navigate(`/blog/${SHINY_HUNTERS_POST_SLUG}`)}
-          className="group text-left w-full p-5 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
-        >
-          <span className="block text-sm text-white/35 mb-2">{shinyHuntersPostMeta.date}</span>
-          <span className="block font-display text-xl text-white font-semibold group-hover:text-primary transition-colors">
-            {shinyHuntersPostMeta.title}
-          </span>
-          <span className="block text-sm text-white/45 mt-2 leading-relaxed">{shinyHuntersPostMeta.subtitle}</span>
-          <span className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-primary">
-            Read article
-            <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 group-hover:translate-x-0.5 transition-transform">
-              <path
-                fillRule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
 
       <div
         className={`flex flex-col sm:flex-row items-start sm:items-center gap-5 mt-12 transition-all duration-500 delay-200 ${
@@ -109,25 +82,7 @@ function BlogContent({ navigate, slug }) {
     return () => clearTimeout(t)
   }, [])
 
-  if (slug === SHINY_HUNTERS_POST_SLUG) {
-    return (
-      <section className="relative bg-dark min-h-screen flex flex-col overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-dark to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark to-transparent pointer-events-none" />
-
-        <div className="relative z-10 flex flex-col flex-1 max-w-[1200px] mx-auto px-6 lg:px-8 w-full pt-32 pb-20">
-          <div
-            className={`transition-all duration-500 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          >
-            <ShinyHuntersSalesforce onBack={() => navigate('/blog')} />
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  if (slug && slug !== SHINY_HUNTERS_POST_SLUG) {
+  if (slug) {
     return (
       <section className="relative bg-dark min-h-screen flex flex-col items-center justify-center px-6">
         <p className="text-white/60 mb-6">No article found.</p>
