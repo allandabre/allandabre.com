@@ -47,6 +47,20 @@ export const mediaQuotes = [
 
 export const judgingRoles = [
   {
+    org:     'Manning Publications',
+    role:    'Technical Book Reviewer',
+    scope:   'Manuscript Review — 2026',
+    detail:  'Invited by Manning Publications to provide technical peer review on an in-progress manuscript, evaluating accuracy, depth, and practitioner relevance before publication.',
+    badge:   'Peer Review',
+  },
+  {
+    org:     'ISACA',
+    role:    'Journal Reviewer',
+    scope:   'ISACA Journal — 2026–2027',
+    detail:  'Selected as a peer reviewer for the ISACA Journal, evaluating practitioner submissions across cybersecurity, risk, and governance domains for publication to a global professional audience.',
+    badge:   'Peer Review',
+  },
+  {
     org:     'ISACA',
     role:    'Exam Content Reviewer',
     scope:   'CCS Certification Exam Manual',
