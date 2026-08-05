@@ -137,7 +137,7 @@ export default function Recognition() {
 
         {/* Media Quotes */}
         <div className="mb-16">
-          <h3 className="text-xs font-bold uppercase tracking-widest text-text-muted mb-6">Expert Commentary</h3>
+          <h3 className="text-xs font-bold uppercase tracking-widest text-text-muted mb-6">Cited by Industry Media</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {mediaQuotes.map((q, i) => <QuoteCard key={q.url} quote={q} index={i} />)}
           </div>
