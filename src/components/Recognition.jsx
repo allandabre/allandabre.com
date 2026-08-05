@@ -1,5 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import { featuredOutlets, publications, mediaQuotes, judgingRoles } from '../data/recognition'
+import { featuredOutlets, publications, mediaQuotes, judgingRoles, speakingEngagements } from '../data/recognition'
 
 function OutletBar() {
   const [ref, vis] = useScrollReveal()
@@ -64,6 +64,30 @@ function QuoteCard({ quote, index }) {
   )
 }
 
+function SpeakingCard({ engagement }) {
+  const [ref, vis] = useScrollReveal()
+  return (
+    <a
+      ref={ref}
+      href={engagement.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group flex flex-col bg-dark rounded-2xl p-6 md:p-8 hover:border-primary/30 border border-white/5 hover:border-primary/30 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+    >
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <span className="text-[11px] font-bold uppercase tracking-widest text-primary block mb-1">{engagement.org}</span>
+          <h3 className="font-display text-xl font-bold text-white group-hover:text-primary transition-colors">{engagement.scope}</h3>
+          <p className="text-sm text-white/50 mt-1">{engagement.session}</p>
+        </div>
+        <span className="shrink-0 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary border border-primary/30 rounded-full">{engagement.badge}</span>
+      </div>
+      <p className="text-sm text-white/60 leading-relaxed flex-1">{engagement.detail}</p>
+      <span className="mt-4 text-[11px] text-white/30 font-mono">{engagement.date}</span>
+    </a>
+  )
+}
+
 function JudgingCard({ role }) {
   const [ref, vis] = useScrollReveal()
   return (
@@ -97,7 +121,7 @@ export default function Recognition() {
             Industry Recognition
           </span>
           <h2 ref={titleRef} className={`font-display text-[clamp(2rem,4vw,3rem)] font-bold tracking-tight text-text transition-all duration-700 ${titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Published, quoted &amp; peer-reviewed
+            Published, quoted, reviewed &amp; on stage
           </h2>
         </div>
 
@@ -116,6 +140,14 @@ export default function Recognition() {
           <h3 className="text-xs font-bold uppercase tracking-widest text-text-muted mb-6">Expert Commentary</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {mediaQuotes.map((q, i) => <QuoteCard key={q.url} quote={q} index={i} />)}
+          </div>
+        </div>
+
+        {/* Speaking */}
+        <div className="mb-16">
+          <h3 className="text-xs font-bold uppercase tracking-widest text-text-muted mb-6">Speaking &amp; Conferences</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {speakingEngagements.map((e) => <SpeakingCard key={e.scope} engagement={e} />)}
           </div>
         </div>
 

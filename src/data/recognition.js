@@ -1,11 +1,20 @@
 export const featuredOutlets = [
   { name: 'CIO.com',          role: 'Contributing Author' },
+  { name: 'TechTarget',       role: 'Expert Source'       },
   { name: 'BankInfoSecurity', role: 'Expert Source'       },
   { name: 'Assured.co.uk',    role: 'Expert Source'       },
   { name: 'ISACA',            role: 'Exam Reviewer'       },
+  { name: 'NIST',             role: 'Conference Speaker'  },
 ]
 
 export const publications = [
+  {
+    outlet:   'CIO.com',
+    title:    'With AI, control matters more than capability',
+    date:     'July 2026',
+    summary:  'Why enterprises should prioritize governance and architectural fit over benchmark scores when selecting AI models — and why the best AI model is the one your organization can actually govern.',
+    url:      'https://www.cio.com/article/4203027/with-ai-control-matters-more-than-capability.html',
+  },
   {
     outlet:   'CIO.com',
     title:    'The future of AI belongs to organizations that govern what they spend as well as what they build',
@@ -16,6 +25,12 @@ export const publications = [
 ]
 
 export const mediaQuotes = [
+  {
+    outlet:  'TechTarget',
+    quote:   'More becomes too heavy to maintain, less stops being useful. I\'d rather organizations start with these five fields and keep them current than build an elaborate 15-field template nobody maintains past month two.',
+    context: 'Cited as Technology Compliance and AI Risk lead at PwC, advising on how AI leaders should structure a practical AI feature inventory — advocating for a streamlined five-field governance approach over elaborate templates.',
+    url:     'https://www.techtarget.com/searcherp/feature/How-AI-leaders-can-build-an-AI-feature-inventory',
+  },
   {
     outlet:  'BankInfoSecurity',
     quote:   'Lifting the export controls does not mean the original security concerns disappeared. It more likely means Commerce and Anthropic reached a level of comfort around the controls, safeguards, monitoring and access conditions.',
@@ -37,5 +52,18 @@ export const judgingRoles = [
     scope:   'CCS Certification Exam Manual',
     detail:  'Invited by ISACA to review and validate the Certified Cybersecurity Specialist (CCS) exam manual, evaluating the knowledge framework against which cybersecurity professionals are globally certified.',
     badge:   'Peer Review',
+  },
+]
+
+export const speakingEngagements = [
+  {
+    org:     'NIST',
+    role:    'Conference Speaker',
+    scope:   'Additive Construction — The Path to Standardization Continues',
+    session: 'Session 4: Sensor and Machine Learning for AC',
+    date:    'July 30, 2026',
+    detail:  'Invited to present alongside PwC colleague Eshaan Jain at the NIST Additive Construction conference, covering the application of sensor technology and machine learning to additive construction programs.',
+    badge:   'Speaking',
+    url:     'https://www.nist.gov/news-events/events/2026/07/additive-construction-path-standardization-continues',
   },
 ]
