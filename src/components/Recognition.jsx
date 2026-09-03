@@ -1,5 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import { featuredOutlets, publications, judgingRoles, speakingEngagements } from '../data/recognition'
+import { featuredOutlets, publications, mediaQuotes, judgingRoles, speakingEngagements } from '../data/recognition'
 
 function OutletBar() {
   const [ref, vis] = useScrollReveal()
@@ -12,6 +12,27 @@ function OutletBar() {
         </div>
       ))}
     </div>
+  )
+}
+
+function QuoteCard({ quote, index }) {
+  const [ref, vis] = useScrollReveal()
+  return (
+    <a
+      ref={ref}
+      href={quote.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group flex flex-col bg-surface-warm rounded-2xl border border-border-light hover:border-primary/30 hover-card p-6 transition-all duration-700 ${vis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <span className="font-display text-4xl text-primary/20 font-bold leading-none mb-3 select-none">&ldquo;</span>
+      <p className="font-display text-base font-semibold text-text leading-snug mb-4 flex-1 italic">{quote.quote}</p>
+      <div>
+        <span className="inline-block px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary bg-primary-light rounded-full mb-2">{quote.outlet}</span>
+        <p className="text-sm text-text-secondary leading-relaxed mt-2">{quote.context}</p>
+      </div>
+    </a>
   )
 }
 
@@ -112,6 +133,14 @@ export default function Recognition() {
           <h3 className="text-xs font-bold uppercase tracking-widest text-text-muted mb-6">Published Work</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {publications.map((p, i) => <PublicationCard key={p.url} pub={p} index={i} />)}
+          </div>
+        </div>
+
+        {/* Media Quotes */}
+        <div className="mb-16">
+          <h3 className="text-xs font-bold uppercase tracking-widest text-text-muted mb-6">Cited by Industry Media</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {mediaQuotes.map((q, i) => <QuoteCard key={q.url} quote={q} index={i} />)}
           </div>
         </div>
 
