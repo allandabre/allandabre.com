@@ -26,6 +26,12 @@ export const publications = [
 
 export const mediaQuotes = [
   {
+    outlet:  'CIO',
+    quote:   'Can it stop at the exact moment you want it to stop? Are you testing for that?',
+    context: 'Cited as Technology Compliance and AI Lead at PwC, on distinguishing an AI agent\'s confidence level from its authority to act — advocating for an "agent harness" as a controls layer outside the model, rather than relying on policy documents or prompts.',
+    url:     'https://www.cio.com/article/4208063/ai-agents-need-to-learn-when-enough-is-enough.html',
+  },
+  {
     outlet:  'TechTarget',
     quote:   'More becomes too heavy to maintain, less stops being useful. I\'d rather organizations start with these five fields and keep them current than build an elaborate 15-field template nobody maintains past month two.',
     context: 'Cited as Technology Compliance and AI Risk lead at PwC, advising on how AI leaders should structure a practical AI feature inventory — advocating for a streamlined five-field governance approach over elaborate templates.',
@@ -38,22 +44,16 @@ export const mediaQuotes = [
     url:     'https://www.bankinfosecurity.com/us-lifts-export-curbs-on-anthropic-ai-models-a-32123',
   },
   {
-    outlet:  'Assured Intelligence',
-    quote:   'This incident is a classic case of not getting the basics right. Access controls, role-based permissions, regular access reviews, and MFA play a critical role in limiting attacker movement.',
-    context: 'Cited as AI risk and technology compliance leader at PwC, providing authoritative analysis on the South Staffordshire Water breach, a £1M incident attributed to foundational access control failures.',
-    url:     'https://assured.co.uk/2026/ai-autopsy-south-staffordshire-waters-1m-lesson-in-visibility/',
-  },
-  {
     outlet:  'National Technology News',
     quote:   'For years the assumption was that frontier AI capability needed massive compute budgets, and that gave a handful of US labs, and the chipmakers behind them, a durable moat. DeepSeek R1 challenged that directly.',
     context: 'Cited as Technology Compliance & AI Lead at PwC, on the rise of Chinese AI models and the erosion of the assumption that frontier AI capability commands a durable premium.',
     url:     'https://nationaltechnology.co.uk/No_Longer_Behind_The_Rise_Of_Chinese_AI_Models_At_The_Enterprise_Level.php',
   },
   {
-    outlet:  'CIO',
-    quote:   'Can it stop at the exact moment you want it to stop? Are you testing for that?',
-    context: 'Cited as Technology Compliance and AI Lead at PwC, on distinguishing an AI agent\'s confidence level from its authority to act — advocating for an "agent harness" as a controls layer outside the model, rather than relying on policy documents or prompts.',
-    url:     'https://www.cio.com/article/4208063/ai-agents-need-to-learn-when-enough-is-enough.html',
+    outlet:  'Assured Intelligence',
+    quote:   'This incident is a classic case of not getting the basics right. Access controls, role-based permissions, regular access reviews, and MFA play a critical role in limiting attacker movement.',
+    context: 'Cited as AI risk and technology compliance leader at PwC, providing authoritative analysis on the South Staffordshire Water breach, a £1M incident attributed to foundational access control failures.',
+    url:     'https://assured.co.uk/2026/ai-autopsy-south-staffordshire-waters-1m-lesson-in-visibility/',
   },
 ]
 
