@@ -10,6 +10,13 @@ export const featuredOutlets = [
 export const publications = [
   {
     outlet:   'CIO.com',
+    title:    "The EU AI Act just gave you a breach notification clock you didn't know about",
+    date:     'September 2026',
+    summary:  "Article 73 of the EU AI Act is triggered by an indirect causal link between an AI system and downstream harm, not a clean technical event — meaning incident response playbooks built around breach detection aren't equipped to catch it.",
+    url:      'https://www.cio.com/article/4218777/the-eu-ai-act-just-gave-you-a-breach-notification-clock-you-didnt-know-about.html',
+  },
+  {
+    outlet:   'CIO.com',
     title:    'With AI, control matters more than capability',
     date:     'July 2026',
     summary:  'Why enterprises should prioritize governance and architectural fit over benchmark scores when selecting AI models — and why the best AI model is the one your organization can actually govern.',
