@@ -10,6 +10,13 @@ export const featuredOutlets = [
 export const publications = [
   {
     outlet:   'CIO.com',
+    title:    'AI is making software cheap to build. Is your organization ready for what comes next?',
+    date:     'October 2026',
+    summary:  'AI coding agents are collapsing the cost of building custom software — shifting enterprise IT\'s core challenge from scarcity of development capacity to abundance, and the governance risk of tools that skip procurement and change review entirely. The real challenge becomes knowing what you own, and when to retire it.',
+    url:      'https://www.cio.com/article/4231346/ai-is-making-software-cheap-to-build-is-your-organization-ready-for-what-comes-next.html',
+  },
+  {
+    outlet:   'CIO.com',
     title:    "The EU AI Act just gave you a breach notification clock you didn't know about",
     date:     'September 2026',
     summary:  "Article 73 of the EU AI Act is triggered by an indirect causal link between an AI system and downstream harm, not a clean technical event — meaning incident response playbooks built around breach detection aren't equipped to catch it.",
@@ -28,6 +35,27 @@ export const publications = [
     date:     'June 2026',
     summary:  'A practitioner perspective on why enterprise AI governance must extend beyond capability to encompass cost intelligence, architectural discipline, and accountability frameworks aligned with regulatory requirements.',
     url:      'https://www.cio.com/article/4190711/the-future-of-ai-belongs-to-organizations-that-govern-what-they-spend-as-well-as-what-they-build.html',
+  },
+  {
+    outlet:   'ISACA',
+    title:    'Rethinking Salesforce Security: From One-Time Scoping to Continuous Monitoring',
+    date:     'October 2026',
+    summary:  "As Salesforce expands into financially sensitive workflows like billing and commissions, recent breaches tied to groups like ShinyHunters show the platform needs the same continuous-monitoring rigor as core ERP systems — mapping specific control areas to COBIT objectives with clear ownership and review cadence.",
+    url:      'https://www.isaca.org/resources/news-and-trends/industry-news/2026/rethinking-salesforce-security-from-one-time-scoping-to-continuous-monitoring',
+  },
+  {
+    outlet:   'GRIP',
+    title:    'Two AI labs, one shared failure, and a compliance question nobody has asked',
+    date:     'September 2026',
+    summary:  "Two 2026 incidents where test-stage AI models from OpenAI and Anthropic breached live corporate systems point to a structural governance gap — evaluation-stage AI risk falls between functions that each assume someone else owns it, with implications for vendor due diligence and EU AI Act Article 55 reporting.",
+    url:      'https://www.grip.globalrelay.com/two-ai-labs-one-shared-failure-and-a-compliance-question-nobody-has-asked/',
+  },
+  {
+    outlet:   'Risk Management Magazine (RIMS)',
+    title:    'Managing Agent-to-Agent AI Risk in the Supply Chain',
+    date:     'October 2026',
+    summary:  "When AI agents from two different companies interact directly across a supply chain without human oversight, existing internal governance frameworks break down. The piece identifies three cross-boundary failure modes and recommends mutual agent authentication, shared logging standards, and ongoing due diligence on partners' AI governance maturity.",
+    url:      'https://www.rmmagazine.com/articles/article/2026/10/06/managing-agent-to-agent-ai-risk-in-the-supply-chain',
   },
 ]
 
@@ -98,5 +126,15 @@ export const speakingEngagements = [
     detail:  'Invited to present alongside PwC colleague Eshaan Jain at the NIST Additive Construction conference, covering the application of sensor technology and machine learning to additive construction programs.',
     badge:   'Speaking',
     url:     'https://www.nist.gov/news-events/events/2026/07/additive-construction-path-standardization-continues',
+  },
+  {
+    org:     'GRIP',
+    role:    'Podcast Guest',
+    scope:   'Allan Dabre on monitoring AI deployment',
+    session: 'Hosted by Carmen Cracknell, GRIP Senior Reporter',
+    date:    'September 21, 2026',
+    detail:  'Interviewed on AI governance and compliance monitoring in enterprise settings, drawing on experience in enterprise risk, IT controls, and regulatory compliance.',
+    badge:   'Podcast',
+    url:     'https://www.grip.globalrelay.com/transcript-allan-dabre-podcast/',
   },
 ]
