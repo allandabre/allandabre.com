@@ -1,13 +1,33 @@
 export const featuredOutlets = [
-  { name: 'CIO.com',          role: 'Contributing Author' },
-  { name: 'TechTarget',       role: 'Expert Source'       },
-  { name: 'BankInfoSecurity', role: 'Expert Source'       },
-  { name: 'Assured.co.uk',    role: 'Expert Source'       },
-  { name: 'ISACA',            role: 'Exam Reviewer'       },
-  { name: 'NIST',             role: 'Conference Speaker'  },
+  { name: 'CIO.com',                         role: 'Contributing Author' },
+  { name: 'ISACA',                           role: 'Exam Reviewer'       },
+  { name: 'Risk Management Magazine (RIMS)', role: 'Contributing Author' },
+  { name: 'GRIP',                            role: 'Contributing Author' },
+  { name: 'NIST',                            role: 'Conference Speaker'  },
 ]
 
 export const publications = [
+  {
+    outlet:   'ISACA',
+    title:    'Rethinking Salesforce Security: From One-Time Scoping to Continuous Monitoring',
+    date:     'October 2026',
+    summary:  "As Salesforce expands into financially sensitive workflows like billing and commissions, recent breaches tied to groups like ShinyHunters show the platform needs the same continuous-monitoring rigor as core ERP systems — mapping specific control areas to COBIT objectives with clear ownership and review cadence.",
+    url:      'https://www.isaca.org/resources/news-and-trends/industry-news/2026/rethinking-salesforce-security-from-one-time-scoping-to-continuous-monitoring',
+  },
+  {
+    outlet:   'Risk Management Magazine (RIMS)',
+    title:    'Managing Agent-to-Agent AI Risk in the Supply Chain',
+    date:     'October 2026',
+    summary:  "When AI agents from two different companies interact directly across a supply chain without human oversight, existing internal governance frameworks break down. The piece identifies three cross-boundary failure modes and recommends mutual agent authentication, shared logging standards, and ongoing due diligence on partners' AI governance maturity.",
+    url:      'https://www.rmmagazine.com/articles/article/2026/10/06/managing-agent-to-agent-ai-risk-in-the-supply-chain',
+  },
+  {
+    outlet:   'GRIP',
+    title:    'Two AI labs, one shared failure, and a compliance question nobody has asked',
+    date:     'September 2026',
+    summary:  "Two 2026 incidents where test-stage AI models from OpenAI and Anthropic breached live corporate systems point to a structural governance gap — evaluation-stage AI risk falls between functions that each assume someone else owns it, with implications for vendor due diligence and EU AI Act Article 55 reporting.",
+    url:      'https://www.grip.globalrelay.com/two-ai-labs-one-shared-failure-and-a-compliance-question-nobody-has-asked/',
+  },
   {
     outlet:   'CIO.com',
     title:    'AI is making software cheap to build. Is your organization ready for what comes next?',
@@ -35,27 +55,6 @@ export const publications = [
     date:     'June 2026',
     summary:  'A practitioner perspective on why enterprise AI governance must extend beyond capability to encompass cost intelligence, architectural discipline, and accountability frameworks aligned with regulatory requirements.',
     url:      'https://www.cio.com/article/4190711/the-future-of-ai-belongs-to-organizations-that-govern-what-they-spend-as-well-as-what-they-build.html',
-  },
-  {
-    outlet:   'ISACA',
-    title:    'Rethinking Salesforce Security: From One-Time Scoping to Continuous Monitoring',
-    date:     'October 2026',
-    summary:  "As Salesforce expands into financially sensitive workflows like billing and commissions, recent breaches tied to groups like ShinyHunters show the platform needs the same continuous-monitoring rigor as core ERP systems — mapping specific control areas to COBIT objectives with clear ownership and review cadence.",
-    url:      'https://www.isaca.org/resources/news-and-trends/industry-news/2026/rethinking-salesforce-security-from-one-time-scoping-to-continuous-monitoring',
-  },
-  {
-    outlet:   'GRIP',
-    title:    'Two AI labs, one shared failure, and a compliance question nobody has asked',
-    date:     'September 2026',
-    summary:  "Two 2026 incidents where test-stage AI models from OpenAI and Anthropic breached live corporate systems point to a structural governance gap — evaluation-stage AI risk falls between functions that each assume someone else owns it, with implications for vendor due diligence and EU AI Act Article 55 reporting.",
-    url:      'https://www.grip.globalrelay.com/two-ai-labs-one-shared-failure-and-a-compliance-question-nobody-has-asked/',
-  },
-  {
-    outlet:   'Risk Management Magazine (RIMS)',
-    title:    'Managing Agent-to-Agent AI Risk in the Supply Chain',
-    date:     'October 2026',
-    summary:  "When AI agents from two different companies interact directly across a supply chain without human oversight, existing internal governance frameworks break down. The piece identifies three cross-boundary failure modes and recommends mutual agent authentication, shared logging standards, and ongoing due diligence on partners' AI governance maturity.",
-    url:      'https://www.rmmagazine.com/articles/article/2026/10/06/managing-agent-to-agent-ai-risk-in-the-supply-chain',
   },
 ]
 
@@ -114,6 +113,27 @@ export const judgingRoles = [
     detail:  'Invited by ISACA to review and validate the Certified Cybersecurity Specialist (CCS) exam manual, evaluating the knowledge framework against which cybersecurity professionals are globally certified.',
     badge:   'Peer Review',
   },
+  {
+    org:     'Hack-Nation',
+    role:    'Hackathon Judge',
+    scope:   'Hack Nation 7th Global AI Hackathon — October 2026',
+    detail:  'Invited to serve as a judge for the 7th Global AI Hackathon, organized by Hack-Nation with the MIT Club of Northern California and MIT Club of Germany, evaluating builder submissions across AI challenge tracks.',
+    badge:   'Judging',
+  },
+  {
+    org:     'MunichTech EXPO',
+    role:    'Hackathon Judge',
+    scope:   'MunichTech EXPO — Autumn Edition, September 2026',
+    detail:  'Served as a Hackathon Judge at MunichTech EXPO (Autumn Edition), evaluating participant projects alongside presenting as a Featured Speaker at the same event.',
+    badge:   'Judging',
+  },
+  {
+    org:     'NeurIPS 2026',
+    role:    'Industry Advisory Board (IAB) Reviewer',
+    scope:   'IAB @ NeurIPS 2026 Workshop',
+    detail:  'Served on the Industry Advisory Board, reviewing paper submissions for a NeurIPS 2026 workshop.',
+    badge:   'Peer Review',
+  },
 ]
 
 export const speakingEngagements = [
@@ -126,6 +146,16 @@ export const speakingEngagements = [
     detail:  'Invited to present alongside PwC colleague Eshaan Jain at the NIST Additive Construction conference, covering the application of sensor technology and machine learning to additive construction programs.',
     badge:   'Speaking',
     url:     'https://www.nist.gov/news-events/events/2026/07/additive-construction-path-standardization-continues',
+  },
+  {
+    org:     'MunichTech EXPO',
+    role:    'Featured Speaker',
+    scope:   'Automating Governance: Building Resilient Risk & Compliance Architecture for AI Systems',
+    session: 'Venue: codecentric AG, Munich',
+    date:    'September 20–22, 2026',
+    detail:  'Invited as a Featured Speaker at MunichTech EXPO (Autumn Edition), presenting on building resilient risk and compliance architecture for AI systems.',
+    badge:   'Speaking',
+    url:     'https://munichtechexpo.com/share/speaker/87',
   },
   {
     org:     'GRIP',

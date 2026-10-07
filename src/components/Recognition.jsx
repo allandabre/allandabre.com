@@ -101,7 +101,7 @@ export default function Recognition() {
             Industry Recognition
           </span>
           <h2 ref={titleRef} className={`font-display text-[clamp(2rem,4vw,3rem)] font-bold tracking-tight text-text transition-all duration-700 ${titleVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Published, quoted, reviewed &amp; on stage
+            Published, cited &amp; invited
           </h2>
         </div>
 
